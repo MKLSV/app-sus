@@ -6,11 +6,11 @@ _createMails()
 
 export const mailService = {
     query,
+    remove
 }
 
 function query() {
     return storageService.query(MAILS_KEY).then(mails => {
-        console.log(mails)
         return mails
     })
 }
@@ -21,60 +21,81 @@ function _createMails() {
         mails = [
             {
                 id: 'e101',
-                name:'Jack',
+                name: 'Jack',
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
                 sentAt: Date.now(),
-                to: 'momo1@momo.com'
+                removedAt: null,
+                from: 'momo@momo.com',
+                to: 'user@appsus.com'
+
             },
             {
                 id: 'e102',
-                name:'Will',
+                name: 'Will',
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
                 sentAt: 1551133130594,
-                to: 'momo2@momo.com'
+                removedAt: null,
+                from: 'momo@momo.com',
+                to: 'user@appsus.com'
+
             },
             {
                 id: 'e103',
-                name:'Moma',
+                name: 'Moma',
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
                 sentAt: 1551133000594,
-                to: 'mom3o@momo.com'
+                removedAt: null,
+                from: 'momo@momo.com',
+                to: 'user@appsus.com'
+
             },
             {
                 id: 'e104',
-                name:'Ali',
+                name: 'Ali',
                 subject: 'Miss you!',
                 body: 'Wore youuld love to ve to catch up sometimes',
                 isRead: false,
                 sentAt: 1551033930594,
-                to: 'ababa4o@momo.com'
+                removedAt: null,
+                from: 'momo@momo.com',
+                to: 'user@appsus.com'
+
             },
             {
                 id: 'e105',
-                name:'Vasya',
+                name: 'Vasya',
                 subject: 'How aare you!',
                 body: 'WoHow aare youuld love to catch uHow aare youp sometimes',
                 isRead: false,
                 sentAt: 1550533930594,
-                to: 'mom5o@momo.com'
+                removedAt: null,
+                from: 'momo@momo.com',
+                to: 'user@appsus.com'
+
             },
             {
                 id: 'e106',
-                name:'Guf',
+                name: 'Guf',
                 subject: 'Hey you!',
                 body: 'Would love to caWould love toWould love totch up sometimes',
                 isRead: false,
                 sentAt: 155110930594,
-                to: 'momo6@momo.com'
+                removedAt: null,
+                from: 'momo@momo.com',
+                to: 'user@appsus.com'
+
             },
         ]
         utilService.saveToStorage(MAILS_KEY, mails)
     }
-    console.log(mails)
+}
+
+function remove(mailId) {
+    return storageService.remove(MAILS_KEY, mailId)
 }
