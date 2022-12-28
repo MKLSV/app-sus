@@ -6,7 +6,6 @@ _createMails()
 
 export const mailService = {
     query,
-
 }
 
 function query() {
@@ -22,6 +21,7 @@ function _createMails() {
         mails = [
             {
                 id: 'e101',
+                name:'Jack',
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
@@ -30,6 +30,7 @@ function _createMails() {
             },
             {
                 id: 'e102',
+                name:'Will',
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
@@ -38,6 +39,7 @@ function _createMails() {
             },
             {
                 id: 'e103',
+                name:'Moma',
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
@@ -46,6 +48,7 @@ function _createMails() {
             },
             {
                 id: 'e104',
+                name:'Ali',
                 subject: 'Miss you!',
                 body: 'Wore youuld love to ve to catch up sometimes',
                 isRead: false,
@@ -54,6 +57,7 @@ function _createMails() {
             },
             {
                 id: 'e105',
+                name:'Vasya',
                 subject: 'How aare you!',
                 body: 'WoHow aare youuld love to catch uHow aare youp sometimes',
                 isRead: false,
@@ -62,6 +66,7 @@ function _createMails() {
             },
             {
                 id: 'e106',
+                name:'Guf',
                 subject: 'Hey you!',
                 body: 'Would love to caWould love toWould love totch up sometimes',
                 isRead: false,

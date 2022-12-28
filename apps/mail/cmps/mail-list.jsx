@@ -1,58 +1,18 @@
-import { mailService } from "../services/mail.service.js"
 
-const { Fragment } = React
 const { useState, useEffect } = React
 
-export function MailList() {
+export function MailList({mails}) {
+    console.log(mails)
 
-    const [mails, setMails] = useState(null)
-
-    useEffect(() => {
-        loadMails()
-    }, [])
-
-    function loadMails() {
-        mailService.query().then(mails => setMails(mails))
-        console.log(mails)
-        console.log(mails)
-    }
-
-
-    return <Fragment>
-        <table className='mail-list'>
+    return  <table className='mail-list'>
             <tbody>
-                <tr>
-                    <td>Name</td>
-                    <td>Title/One more email for the road</td>
-                    <td>Time: 12:14AM</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Title/One more email for the road</td>
-                    <td>Time: 12:14AM</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Title/One more email for the road</td>
-                    <td>Time: 12:14AM</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Title/One more email for the road</td>
-                    <td>Time: 12:14AM</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Title/One more email for the road</td>
-                    <td>Time: 12:14AM</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Title/One more email for the road</td>
-                    <td>Time: 12:14AM</td>
-                </tr>
+                {mails.map(mail => <tr key={mail.id}>
+                    <td>{mail.name}</td>
+                    <td>{mail.subject}</td>
+                    <td>{mail.sentAt}</td>
+                </tr>)}
             </tbody>
         </table>
-    </Fragment>
+
 
 }
