@@ -14,6 +14,7 @@ export function MailList() {
     function loadMails() {
         mailService.query().then(mails => setMails(mails))
         console.log(mails)
+        console.log(mails)
     }
 
 
