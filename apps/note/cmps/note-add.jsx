@@ -18,6 +18,7 @@ export function NoteAdd() {
       <div className="notes-input">
         {/* <input type="text" className="text" /> */}
         <form>
+          <input type="text" className="text" placeholder="Title" />
           <textarea
             placeholder="Take a note..."
             name="txt"

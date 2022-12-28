@@ -123,7 +123,7 @@ function _createNotes() {
         id: "n102",
         type: "note-img",
         isPinned: false,
-        info: { url: "http://some-img/me", title: "Bobi and Me" },
+        info: { url: "https://thumbs.dreamstime.com/b/small-river-forest-mountain-under-shadows-31344529.jpg", title: "Bobi and Me" },
         style: { backgroundColor: "#00d" },
       },
       {

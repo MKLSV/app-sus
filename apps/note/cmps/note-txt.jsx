@@ -1,9 +1,10 @@
 
 
-export function NoteTxt() {
+export function NoteTxt({info}) {
 
     return <div className="note-txt">
-        <h1>note txt</h1>
+        {info.title && <h2>{info.title}</h2>}
+        <p>{info.txt}</p>
         
     </div>
 
