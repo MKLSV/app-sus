@@ -1,9 +1,9 @@
 
 
-export function NotePreview() {
+export function NotePreview({note}) {
 
     return <article className="note-preview">
-        one of my notes
+        <h2>{note.title}</h2>
+        <p>{note.txt}</p>
     </article>
-
 }
