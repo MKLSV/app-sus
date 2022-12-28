@@ -11,7 +11,7 @@
     list-style-type: none;
     padding:0;
     margin:0;
-    gap: 5rem;
+    gap: 1rem;
     flex-wrap: wrap;
     list-style-type: none;
     margin-top: 5rem;
@@ -25,7 +25,10 @@
     box-shadow: 0 2px 5px rgb(175,175,175);
 }
 
-.note-preview h2 {
+.note-preview h2{
+    padding: 1rem;
+}
+.note-preview h1{
     padding: 1rem;
 }
 

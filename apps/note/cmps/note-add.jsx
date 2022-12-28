@@ -30,7 +30,7 @@ export function NoteAdd() {
           ></textarea>
         </form>
         <div className="note-add-btns">
-        <button>Add note</button>
+        <button className="add-note-btn">Add note</button>
         </div>
       </div>
     </section>
