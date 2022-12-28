@@ -10,13 +10,19 @@ import { NewMail } from "../cmps/mail-new-message.jsx"
 import { mailService } from "../services/mail.service.js"
 
 export function MailIndex() {
-   
+
+    const [onShow, setOnShow] = useState(false)
     const [mails, setMails] = useState(null)
+
 
     useEffect(() => {
         loadMails()
     }, [])
 
+
+    function onNewMail() {
+        setOnShow(!onShow)
+    }
 
     function loadMails() {
         mailService.query().then(mails => setMails(mails))
@@ -33,9 +39,9 @@ export function MailIndex() {
     return <Fragment>
         <MailHeader />
         <div className='mail-container'>
-            <MailNav />
-            <MailList mails={mails} onRemoveMail={onRemoveMail}/>
-            <NewMail/>
+            <MailNav onNewMail={onNewMail}/>
+            <MailList onShow={!onShow} mails={mails} onRemoveMail={onRemoveMail} />
+            <NewMail onShow={onShow}/>
         </div>
     </Fragment>
 }

@@ -1,10 +1,17 @@
 
 
-export function NewMail() {
+export function NewMail({onShow}) {
 
-    return <div className='new-message-container'>
+    function onSend(){
+
+        console.log('send')
+    }
+
+    return <div className='new-message-container' hidden={!onShow}>
+        <form className='new-message-form' onSubmit={onSend}>
+            <div>
+
         <h3 className='new-message-header'>New Message</h3>
-        <form className='new-message-form' action="/my-handling-form-page" method="post">
 
             <li className='msg-form'>
                 <label className='msg-form-label' htmlFor="name">To:</label>
@@ -20,11 +27,13 @@ export function NewMail() {
             </li>
             <li className='msg-form'>
                 <label className='msg-form-label' htmlFor="mail">Subject:</label>
-                <input className='msg-input-form' type="email" id="mail" name="user_email" />
-            </li>
-            <li className='msg-form'>
                 <textarea className='text-input-form'id="msg" name="user_message"></textarea>
             </li>
+            </div>
+            <div className='new-message-btns'>
+                <button>Send</button>
+                <button>🧺</button>
+            </div>
         </form>
     </div>
 }

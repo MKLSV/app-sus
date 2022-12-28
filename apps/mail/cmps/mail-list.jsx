@@ -5,7 +5,7 @@ import { utilService } from "../../../services/util.service.js"
 import { DataTable } from "./data-table.jsx"
 
 
-export function MailList({ mails, onRemoveMail }) {
+export function MailList({ mails, onRemoveMail, onShow }) {
 
     function getTime(time) {
         const currTime = Date.now()
@@ -18,7 +18,7 @@ export function MailList({ mails, onRemoveMail }) {
     }
 
 
-    return <table className='mail-list'>
+    return <table className='mail-list' hidden={!onShow}>
         <tbody>
             {mails.map(mail => <DataTable key={mail.id} mail={mail} time={getTime(mail.sentAt)} onRemoveMail={onRemoveMail}/>)}
         </tbody>
