@@ -25,7 +25,7 @@ function _createMails() {
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
-                sentAt: 1551133930594,
+                sentAt: Date.now(),
                 to: 'momo1@momo.com'
             },
             {
