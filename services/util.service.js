@@ -80,7 +80,6 @@ function getMonthName(date) {
     return monthNames[date.getMonth()]
 }
 function getMonthShortName(date) {
-    console.log(date)
     if(typeof date === 'number') date = new Date(date)
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"

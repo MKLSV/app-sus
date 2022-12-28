@@ -13,19 +13,70 @@
 }
 
 td {
-    background-color: aliceblue;
     height: 35px;
-    padding: 2px;
+    padding: 2px 7px;
 }
+
+tr {
+    border-bottom: 1px solid rgb(162, 162, 162);
+}
+
+.mail-list-message:hover {
+    background-color: rgb(215, 230, 239);
+    cursor: pointer;
+    box-shadow: 1px 1px 2px 1px rgba(71, 71, 71, 0.2);
+}
+
+
 
 .mail-list {
     /* display: none; */
+    background-color: rgb(225, 235, 241);
+    border-spacing: 0;
+    border-collapse: collapse;
+    padding: 15px;
 }
+
 
 .mail-nav-list {
     list-style-type: none;
     display: flex;
     flex-direction: column;
+}
+
+
+/* PREVIEW */
+
+.preview-message {
+    padding-bottom: 30px;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.preview-subject {
+    font-size: x-large;
+}
+
+.preview-sender {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+}
+
+.preview-sender-name {
+    font-weight: 600;
+}
+
+.preview-sender-email {
+    color: rgb(110, 110, 110);
+}
+
+.preview-message-text {
+    
 }
 
 /* NEW MESSAGE */
@@ -61,3 +112,5 @@ td {
     width: 90%;
     height: 50vh;
 }
+
+/* MAIL LIST */

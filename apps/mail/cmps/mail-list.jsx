@@ -1,10 +1,11 @@
-
-const { useState, useEffect } = React
+const { Link } = ReactRouterDOM
+const { useState, useEffect, Fragment } = React
 
 import { utilService } from "../../../services/util.service.js"
+import { DataTable } from "./data-table.jsx"
 
-export function MailList({ mails }) {
-    console.log(mails)
+
+export function MailList({ mails, onRemoveMail }) {
 
     function getTime(time) {
         const currTime = Date.now()
@@ -16,13 +17,10 @@ export function MailList({ mails }) {
         return (utilService.getDay(time) + ' ' + utilService.getMonthShortName(time))
     }
 
+
     return <table className='mail-list'>
         <tbody>
-            {mails.map(mail => <tr key={mail.id}>
-                <td>{mail.name}</td>
-                <td>{mail.subject}</td>
-                <td>{getTime(mail.sentAt)}</td>
-            </tr>)}
+            {mails.map(mail => <DataTable key={mail.id} mail={mail} time={getTime(mail.sentAt)} onRemoveMail={onRemoveMail}/>)}
         </tbody>
     </table>
 
