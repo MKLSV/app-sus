@@ -123,7 +123,10 @@ function _createNotes() {
         id: "n102",
         type: "note-img",
         isPinned: false,
-        info: { url: "https://thumbs.dreamstime.com/b/small-river-forest-mountain-under-shadows-31344529.jpg", title: "Bobi and Me" },
+        info: {
+          url: "https://media.tenor.com/bnkVuyHgJrYAAAAC/question-mark-question-mark-meme-guy.gif",
+          title: "Bobi and Me",
+        },
         style: { backgroundColor: "#00d" },
       },
       {
@@ -138,6 +141,41 @@ function _createNotes() {
           ],
         },
       },
+      {
+        id: utilService.makeId(),
+        type: "note-img",
+        isPinned: false,
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+        info: {
+          label: "",
+          url: "https://www.deadcoderising.com/content/images/2018/04/impressive.gif",
+        },
+        style: {
+          backgroundColor: '"#fff48f',
+          color: "black",
+          fontSize: 15,
+          fontFamily: "Impact",
+        },
+      },
+      {
+        id: utilService.makeId(),
+        type: "note-img",
+        isPinned: false,
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+        info: {
+          label: "",
+          url: "https://b1694534.smushcdn.com/1694534/wp-content/uploads/2021/06/0_fQTD4DjK71YMUtIS.gif?lossy=1&strip=1&webp=1",
+        },
+        style: {
+          backgroundColor: '"#fff48f',
+          color: "black",
+          fontSize: 15,
+          fontFamily: "Impact",
+        },
+      },
+      
     ];
     utilService.saveToStorage(NOTES_KEY, notes);
   }
