@@ -20,7 +20,7 @@ export function DataTable({ mail, onRemoveMail, time }) {
                 <td><button onClick={() => onRemoveMail(mail.id)}>🧺</button></td> */}
         </tr>
         <tr hidden={!isExpanted}>
-            <td colSpan='3' className='preview-message'>
+            <td colSpan='4' className='preview-message'>
                 <div className='preview-header'>
                     <a className='preview-subject'>{mail.subject}</a>
                     <div className='preview-btns'>
