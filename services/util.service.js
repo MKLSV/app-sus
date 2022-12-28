@@ -8,7 +8,9 @@ export const utilService = {
     getMonthName,
     loadFromStorage,
     saveToStorage,
-    getTime
+    getTime,
+    getMonthShortName,
+    getDay
 }
 
 function makeId(length = 6) {
@@ -57,16 +59,31 @@ function getDayName(date, locale) {
 }
 
 function getTime(date) {
-    var d = new Date(date);
-    var hour = d.getHours();
-    var minute = d.getMinutes();
-    var second = d.getSeconds();
+    var d = new Date(date)
+    var hour = d.getHours()
+    var minute = d.getMinutes()
+    var second = d.getSeconds()
     return { hour, minute, second }
 }
 
+function getDay(time) {
+    var d = new Date(time)
+    var day = d.getDay()
+    return day + 1
+}
+
 function getMonthName(date) {
+    if(typeof date === 'number') date = new Date(date)
     const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
+    ]
+    return monthNames[date.getMonth()]
+}
+function getMonthShortName(date) {
+    console.log(date)
+    if(typeof date === 'number') date = new Date(date)
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ]
     return monthNames[date.getMonth()]
 }

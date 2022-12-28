@@ -9,14 +9,11 @@ export function MailList({ mails }) {
     function getTime(time) {
         const currTime = Date.now()
         const dif = (currTime - time) / 1000 / 60 / 60 / 24
-        console.log(currTime)
         if (dif < 1) {
             const { hour, minute } = utilService.getTime(time)
             return (hour + ":" + minute);
         }
-        
-        // console.log((currTime - time) / 86400000)
-
+        return (utilService.getDay(time) + ' ' + utilService.getMonthShortName(time))
     }
 
     return <table className='mail-list'>
