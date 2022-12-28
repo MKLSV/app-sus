@@ -1,3 +1,17 @@
 .note-index {
     border: solid black 2px;
 }
+
+.note-list ul {
+    display: flex;
+    list-style-type: none;
+    padding:0;
+    margin:0
+    /* gap: 1rem */
+}
+
+.note-preview {
+    width: 200px;
+    height: 400px;
+    border: solid black 2px;
+}

@@ -2,8 +2,8 @@
 
 export function NotePreview() {
 
-    return <article>
-        <h1>Note preview</h1>
+    return <article className="note-preview">
+        one of my notes
     </article>
 
 }

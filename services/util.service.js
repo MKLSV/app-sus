@@ -63,11 +63,11 @@ function getMonthName(date) {
     return monthNames[date.getMonth()]
 }
 
-function saveToStorage(key, value) {
-    localStorage.setItem(key, JSON.stringify(value))
+function saveToStorage(key, val) {
+    localStorage.setItem(key, JSON.stringify(val))
 }
 
 function loadFromStorage(key) {
-    const data = localStorage.getItem(key)
-    return (data) ? JSON.parse(data) : undefined
+    var val = localStorage.getItem(key)
+    return JSON.parse(val)
 }
