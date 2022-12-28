@@ -7,7 +7,7 @@ export function NoteList({ notes, onRemoveNote, onSelectNote }) {
     <ul className="note-list flex">
       {notes.map((note) => (
         <li>
-          <NotePreview note={note} onRemoveNote={onRemoveNote} onSelectNote={onSelectNote}/>
+          <NotePreview key={note.id} note={note} onRemoveNote={onRemoveNote} onSelectNote={onSelectNote}/>
         </li>
       ))}
     </ul>

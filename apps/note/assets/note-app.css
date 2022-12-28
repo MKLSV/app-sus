@@ -1,8 +1,9 @@
 
 
-/* .note-index {
-    
-} */
+.notes-input {
+    display: flex;
+    justify-content: center;
+}
 
 .note-list {
     display: flex;
@@ -21,17 +22,48 @@
     border: solid rgb(209, 208, 208) 1px;
     border-radius: 1rem;
     font-family: Roboto, arial, sans-serif;
+    box-shadow: 0 2px 5px rgb(175,175,175);
 }
 
-textarea {
-    
-        width: 30%;
+.note-preview h2 {
+    padding: 1rem;
+}
+
+.note-btns {
+    padding: 1rem;
+}
+
+.note-img {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+form {
+        width: 37.5rem;
         padding: 12px 20px;
         box-sizing: border-box;
-        border: 2px solid #ccc;
         border-radius: 4px;
-        background-color: #f8f8f8;
+        background-color: #fff;
         font-size: 16px;
         resize: none;
-      
+        box-shadow: 0 1px 7px rgb(128,128,128);
+}
+
+form input {
+    width: 100%;
+    border: none;
+    padding: 4px 10px;
+    outline: none;
+    font-size: 1rem;
+    resize: none;
+}
+
+form textarea {
+    width: 100%;
+    border: none;
+    padding: 4px 10px;
+    outline: none;
+    font-size: 1rem;
+    resize: none;
+
 }
