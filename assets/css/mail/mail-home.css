@@ -19,7 +19,7 @@ td {
 }
 
 .mail-list {
-    display: none;
+    /* display: none; */
 }
 
 .mail-nav-list {
@@ -30,7 +30,9 @@ td {
 
 /* NEW MESSAGE */
 
-#msg {}
+.new-message-container {
+    display: none;
+}
 
 .msg-form {
     list-style-type: none;
@@ -53,9 +55,9 @@ td {
 .msg-input-form {
     width: 90%;
 }
+
 .text-input-form {
     margin-left: 55px;
     width: 90%;
     height: 50vh;
 }
-

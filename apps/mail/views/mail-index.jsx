@@ -1,6 +1,5 @@
 const { Fragment } = React
 
-
 import { MailHeader } from "../cmps/mail-header.jsx"
 import { MailList } from "../cmps/mail-list.jsx"
 import { MailNav } from "../cmps/mail-nav.jsx"
