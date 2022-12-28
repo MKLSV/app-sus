@@ -3,13 +3,13 @@ import { storageService } from "../../../services/async-storage.service.js";
 
 const NOTES_KEY = "notes";
 
-_createNotes()
+_createNotes();
 
 export const noteService = {
-    query,
-    save,
-    get,
-    remove
+  query,
+  save,
+  get,
+  remove,
 };
 
 // function addNote({ type, data }) {
@@ -86,52 +86,87 @@ export const noteService = {
 // }
 
 function query() {
-    return storageService.query(NOTES_KEY).then((notes) => {
-      return notes;
-    });
-  }
+  return storageService.query(NOTES_KEY).then((notes) => {
+    return notes;
+  });
+}
 
 function save(note) {
-    if (note.id) {
-      return storageService.put(NOTES_KEY, note);
-    } else {
-      return storageService.post(NOTES_KEY, note);
-    }
+  if (note.id) {
+    return storageService.put(NOTES_KEY, note);
+  } else {
+    return storageService.post(NOTES_KEY, note);
   }
-  
-  function get(noteId) {
-    return storageService.get(NOTES_KEY, noteId);
-  }
-  
-  function remove(noteId) {
-    return storageService.remove(NOTES_KEY, noteId);
-  }
-  
+}
+
+function get(noteId) {
+  return storageService.get(NOTES_KEY, noteId);
+}
+
+function remove(noteId) {
+  return storageService.remove(NOTES_KEY, noteId);
+}
 
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTES_KEY);
   if (!notes || !notes.length) {
     notes = [
       {
-        id: utilService.makeId(),
+        id: "n101",
+        createdAt: 1112222,
         type: "note-txt",
-        title: "hello from note app",
-        txt: "Fullstack Me Baby!"
+        isPinned: true,
+        style: { backgroundColor: "#00d" },
+        info: { txt: "Fullstack Me Baby!" },
       },
       {
-        id: utilService.makeId(),
+        id: "n102",
         type: "note-img",
-        title: "hello from note app",
-        txt: "Fullstack Me Baby!"
+        isPinned: false,
+        info: { url: "http://some-img/me", title: "Bobi and Me" },
+        style: { backgroundColor: "#00d" },
       },
       {
-        id: utilService.makeId(),
+        id: "n103",
         type: "note-todos",
-        title: "hello from note app",
-        txt: "Fullstack Me Baby!"
-        
+        isPinned: false,
+        info: {
+          title: "Get my stuff together",
+          todos: [
+            { txt: "Driving liscence", doneAt: null },
+            { txt: "Coding power", doneAt: 187111111 },
+          ],
+        },
       },
     ];
-    utilService.saveToStorage(NOTES_KEY, notes)
+    utilService.saveToStorage(NOTES_KEY, notes);
   }
 }
+
+// function _createNotes() {
+//     let notes = utilService.loadFromStorage(NOTES_KEY);
+//     if (!notes || !notes.length) {
+//       notes = [
+//         {
+//           id: utilService.makeId(),
+//           type: "note-txt",
+//           title: "hello from note app",
+//           txt: "REACT JS RULES!"
+//         },
+//         {
+//           id: utilService.makeId(),
+//           type: "note-img",
+//           title: "hello from note app",
+//           txt: "PASHUTI!"
+//         },
+//         {
+//           id: utilService.makeId(),
+//           type: "note-todos",
+//           title: "hello from note app",
+//           txt: "LO EVANTI ET A MAALAH AZE!"
+
+//         },
+//       ];
+//       utilService.saveToStorage(NOTES_KEY, notes)
+//     }
+//   }

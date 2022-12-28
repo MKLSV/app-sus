@@ -1,19 +1,15 @@
-const {Link} = ReactRouterDOM
+const { Link } = ReactRouterDOM;
 
 import { NotePreview } from "./note-preview.jsx";
 
-
-export function NoteList({notes}) {
-
-    return <ul className="note-list">
-        {notes.map(note => <Link to={`/note/${note.id}`}><li key={note.id}><NotePreview note={note}/></li></Link>)}
-
-        {/* <ul>
-        <Link to={`/note/1`}><li ><NotePreview /></li></Link>  */}
-        
-            {/* change 234 to note id */}
-        {/* </ul> */}
-        
+export function NoteList({ notes, onRemoveNote, onSelectNote }) {
+  return (
+    <ul className="note-list flex">
+      {notes.map((note) => (
+        <li>
+          <NotePreview note={note} onRemoveNote={onRemoveNote} onSelectNote={onSelectNote}/>
+        </li>
+      ))}
     </ul>
-
+  );
 }
