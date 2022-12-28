@@ -7,7 +7,8 @@ export const utilService = {
     getDayName,
     getMonthName,
     loadFromStorage,
-    saveToStorage
+    saveToStorage,
+    getTime
 }
 
 function makeId(length = 6) {
@@ -55,6 +56,13 @@ function getDayName(date, locale) {
     return date.toLocaleDateString(locale, { weekday: 'long' })
 }
 
+function getTime(date) {
+    var d = new Date(date);
+    var hour = d.getHours();
+    var minute = d.getMinutes();
+    var second = d.getSeconds();
+    return { hour, minute, second }
+}
 
 function getMonthName(date) {
     const monthNames = ["January", "February", "March", "April", "May", "June",
