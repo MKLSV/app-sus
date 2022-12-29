@@ -10,6 +10,7 @@ export const noteService = {
   save,
   get,
   remove,
+  getEmptyNote,
 };
 
 // function addNote({ type, data }) {
@@ -107,6 +108,16 @@ function remove(noteId) {
   return storageService.remove(NOTES_KEY, noteId);
 }
 
+function getEmptyNote() {
+  return {
+    id: "",
+    createdAt: "",
+    type: "note-txt",
+    isPinned: false,
+    info: { txt: "", title: "" },
+  };
+}
+
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTES_KEY);
   if (!notes || !notes.length) {
@@ -175,7 +186,6 @@ function _createNotes() {
           fontFamily: "Impact",
         },
       },
-      
     ];
     utilService.saveToStorage(NOTES_KEY, notes);
   }

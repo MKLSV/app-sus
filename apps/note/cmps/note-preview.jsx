@@ -7,7 +7,7 @@ import { NoteTodos } from "../cmps/note-todos.jsx";
 import { DynamicNote } from "./dynamic-note.jsx";
 
 export function NotePreview({ note, onSelectNote, onRemoveNote }) {
-    const [cmpType, setCmpType] = useState(note.type)
+    
     
   return (
     <article className="note-preview">

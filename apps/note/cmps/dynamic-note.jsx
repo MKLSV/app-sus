@@ -1,11 +1,15 @@
+const { useState } = React;
+
 import { NoteImg } from "./note-img.jsx";
 import { NotePreview } from "./note-preview";
 import { NoteTodos } from "./note-todos";
 import { NoteTxt } from "./note-txt";
 
 export function DynamicNote({ type, info }) {
-    
-  switch (type) {
+
+    const [cmpType, setCmpType] = useState(type)
+
+  switch (cmpType) {
     case "note-img":
     return <NoteImg info={info}/>;
       break;

@@ -3,6 +3,7 @@
 .notes-input {
     display: flex;
     justify-content: center;
+    padding-top: 2rem;
 }
 
 .note-list {
@@ -23,6 +24,7 @@
     border-radius: 1rem;
     font-family: Roboto, arial, sans-serif;
     box-shadow: 0 2px 5px rgb(175,175,175);
+    word-break: break-all; 
 }
 
 .note-preview h2{

@@ -4,8 +4,8 @@ export function NoteTodos({ info }) {
         {info.title && <h1>{info.title}</h1>}
         {info.txt && <p>{info.txt}</p>}
       <ul>
-        {info.todos.map((todo) => (
-          <li>{todo.txt}</li>
+        {info.todos.map((todo, idx) => (
+          <li key={idx}>{todo.txt}</li>
         ))}
       </ul>
     </div>

@@ -33,11 +33,9 @@ export function NoteIndex() {
     })
   }
 
-  console.log('notes', notes)
   return (
     <section className="note-index">
-      <h1>Note App</h1>
-      <NoteAdd />
+      <NoteAdd setNotes={setNotes} notes={notes}/>
       <NoteList
         notes={notes}
         onRemoveNote={onRemoveNote}
