@@ -11,7 +11,7 @@ export function DataTable({ mail, onRemoveMail, time }) {
 
     return <Fragment>
 
-        <tr className='mail-list-message' onClick={() => { setIsExpanted(!isExpanted) }}>
+        <tr className={isExpanted ? 'mail-list-message on-message' : 'mail-list-message'} onClick={() => { setIsExpanted(!isExpanted) }}>
             <td>⭐</td>
             <td>{mail.name}</td>
             <td>{mail.subject}</td>
@@ -32,7 +32,9 @@ export function DataTable({ mail, onRemoveMail, time }) {
                     <a className='preview-sender-name'>{mail.name}</a>
                     <a className='preview-sender-email'>{mail.from}</a>
                 </div>
-                <a className='preview-message-text'>{mail.body}</a>
+                <div className='preview-message-text'>
+                    <a>{mail.body}</a>
+                </div>
             </td>
         </tr>
 
