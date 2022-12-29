@@ -14,8 +14,8 @@ export function NotePreview({ note, onSelectNote, onRemoveNote }) {
         <DynamicNote type={note.type} info={note.info} />
 
       <div className="note-btns">
-      <i className="fa-solid fa-trash" onClick={() => onRemoveNote(note.id)}></i>
-      <i className="fa-solid fa-pen-to-square" onClick={() => onSelectNote(note.id)}></i>
+      <i className="fa-solid fa-xl fa-trash note-btn" onClick={() => onRemoveNote(note.id)}></i>
+      <i className="fa-solid fa-xl fa-pen-to-square note-btn" onClick={() => onSelectNote(note.id)}></i>
       </div>
     </article>
   );

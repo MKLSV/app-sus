@@ -14,6 +14,7 @@ export function NoteAdd({ setNotes, notes, onSaveNote }) {
 
   function handleChange({ target }) {
     let { value, type, name: field } = target;
+    if (!value) return
     if (noteToAddType === 'note-video') value = value.replace('watch?v=', 'embed/')
     console.log(target);
     setNoteToAdd((prevNote) => ({
@@ -41,10 +42,10 @@ export function NoteAdd({ setNotes, notes, onSaveNote }) {
         <DynamicForm noteToAddType={noteToAddType} onSaveNote={onSaveNote} handleChange={handleChange} notes={notes} setNotes={setNotes} noteToAdd={noteToAdd}/>
 
         <div className="note-type-btns">
-          <button onClick={()=> onSetNoteType('note-video')}>video</button>
-          <button onClick={()=> onSetNoteType('note-img')}>image</button>
-          <button onClick={()=> onSetNoteType('note-todos')}>todos</button>
-          <button onClick={()=> onSetNoteType('note-txt')}>text</button>
+        <i className="fa-brands fa-youtube fa-xl note-type-btn" onClick={()=> onSetNoteType('note-video')}></i>
+        <i className="fa-regular fa-image fa-xl note-type-btn" onClick={()=> onSetNoteType('note-img')}></i>
+        <i className="fa-solid fa-list-ul fa-xl note-type-btn" onClick={()=> onSetNoteType('note-todos')}></i>
+        <i className="fa-solid fa-font fa-xl note-type-btn" onClick={()=> onSetNoteType('note-txt')}></i>
         </div>
       </div>
     </section>
