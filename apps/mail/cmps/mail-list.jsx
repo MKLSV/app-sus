@@ -11,7 +11,8 @@ export function MailList({ mails, onRemoveMail, onShow }) {
         const currTime = Date.now()
         const dif = (currTime - time) / 1000 / 60 / 60 / 24
         if (dif < 1) {
-            const { hour, minute } = utilService.getTime(time)
+            let { hour, minute } = utilService.getTime(time)
+            minute = minute < 10 ? '0' + minute : minute
             return (hour + ":" + minute);
         }
         return (utilService.getDay(time) + ' ' + utilService.getMonthShortName(time))
@@ -20,7 +21,7 @@ export function MailList({ mails, onRemoveMail, onShow }) {
 
     return <table className='mail-list' hidden={!onShow}>
         <tbody>
-            {mails.map(mail => <DataTable key={mail.id} mail={mail} time={getTime(mail.sentAt)} onRemoveMail={onRemoveMail}/>)}
+            {mails.map(mail => <DataTable key={mail.id} mail={mail} time={getTime(mail.sentAt)} onRemoveMail={onRemoveMail} />)}
         </tbody>
     </table>
 

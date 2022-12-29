@@ -1,6 +1,6 @@
-const { Fragment } = React
-const { useState, useEffect } = React
-const { Routes, Route } = ReactRouterDOM
+const Router = ReactRouterDOM.HashRouter
+const { useState, useEffect, Fragment } = React
+const { Outlet } = ReactRouterDOM
 
 import { MailHeader } from "../cmps/mail-header.jsx"
 import { MailList } from "../cmps/mail-list.jsx"
@@ -36,13 +36,25 @@ export function MailIndex() {
     }
 
     if (!mails) return <h1>Loading...</h1>
+    // return <Fragment>
+    //     <MailHeader />
+    //     <div className='mail-container'>
+    //         <MailNav onNewMail={onNewMail} />
+    //         <div className='nested-route'>
+    //             <Outlet />
+    //         </div>
+    //         {/* <MailList onShow={!onShow} mails={mails} onRemoveMail={onRemoveMail} />
+    //         <NewMail onShow={onShow} /> */}
+    //     </div>
+    // </Fragment>
     return <Fragment>
         <MailHeader />
         <div className='mail-container'>
-            <MailNav onNewMail={onNewMail}/>
+            <MailNav onNewMail={onNewMail} />
             <MailList onShow={!onShow} mails={mails} onRemoveMail={onRemoveMail} />
-            <NewMail onShow={onShow}/>
+            <NewMail onShow={onShow} />
         </div>
     </Fragment>
+
 }
 

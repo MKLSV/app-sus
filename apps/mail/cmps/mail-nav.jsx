@@ -1,9 +1,11 @@
-const { NavLink } = ReactRouterDOM
+const { NavLink, Link } = ReactRouterDOM
 
 
 export function MailNav({ onNewMail }) {
 
     return <div className='mail-nav'>
+
+        {/* <Link to="/mail/new-mail" className='new-mail-btn' >➕Compose</Link> */}
         <button className='new-mail-btn' onClick={() => onNewMail()}>➕Compose</button>
 
         <ul className='mail-nav-list'>
