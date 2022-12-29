@@ -33,15 +33,28 @@
 }
 
 .note-btns {
-  gap: 0.2rem;
   padding: 1rem;
+  color: #6E85B7;
+  gap: 1rem;
+    display: flex;
+}
+
+.note-btn:hover {
   cursor: pointer;
+  color:#4d5d80
 }
 
 .note-type-btns {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 2.1rem;
+ color: #6E85B7;
+}
+
+.note-type-btn:hover {
+  cursor: pointer;
+  color:#4d5d80
 }
 
 .note-img {
