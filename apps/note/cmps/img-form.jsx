@@ -12,7 +12,7 @@ export function ImgForm({noteToAddType, onSaveNote, notes, setNotes, handleChang
     />
     <textarea
     
-      placeholder="Enter image URL..."
+      placeholder="Enter Image URL..."
       name="url"
       id="url"
       value={noteToAdd.info.url}
