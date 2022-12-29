@@ -21,6 +21,10 @@ tr {
     border-bottom: 1px solid rgb(162, 162, 162);
 }
 
+table{
+    height:35px;
+    
+}
 .mail-list-message:hover {
     background-color: rgb(215, 230, 239);
     cursor: pointer;
@@ -34,7 +38,8 @@ tr {
 .table-btns {
     display: none;
 }
-.mail-list-message:hover .preview-time{
+
+.mail-list-message:hover .preview-time {
     display: none;
 }
 
@@ -43,10 +48,10 @@ tr {
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
-    
+
 }
 
-.fa-solid.fa-star{
+.fa-solid.fa-star {
     color: rgb(255, 153, 0);
 }
 
@@ -64,21 +69,25 @@ tr {
     display: flex;
     flex-direction: column;
 }
+
 ul.mail-nav-list {
     padding: 0;
 }
-.mail-nav-btns{
+
+.mail-nav-btns {
     display: flex;
     gap: 5px;
     font-size: 16px;
     padding: 10px;
     cursor: pointer;
 }
-.mail-nav-btns:hover{
+
+.mail-nav-btns:hover {
     background-color: #c2e7ff;
     border-radius: 10px;
 }
-.new-mail-btn{
+
+.new-mail-btn {
     display: flex;
     gap: 10px;
     font-size: 18px;
@@ -89,10 +98,12 @@ ul.mail-nav-list {
     margin-right: 50px;
     transition: 0.5s;
 }
-.new-mail-btn:hover{
-    box-shadow: 1px 1px 5px 1px rgba(64, 64, 64, 0.405) ;
+
+.new-mail-btn:hover {
+    box-shadow: 1px 1px 5px 1px rgba(64, 64, 64, 0.405);
 
 }
+
 .new-message-btns {
     display: flex;
     justify-content: space-between;
@@ -132,7 +143,8 @@ ul.mail-nav-list {
 .preview-message-text {
     padding: 10px;
 }
-.preview-time{
+
+.preview-time {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -142,7 +154,6 @@ ul.mail-nav-list {
 
 /* NEW MESSAGE */
 
-.new-message-container {}
 
 .msg-form {
     list-style-type: none;
@@ -179,6 +190,24 @@ ul.mail-nav-list {
     height: 40vh;
 }
 
+.new-message-trash {
+    cursor: pointer;
+    padding: 10px;
+}
 
+.new-message-send {
+    padding: 0 16px;
+    border-radius: 10px;
+    border:none;
+    background-color: #0b57d0;
+    color:white;
+    font-size: 14px;
+    cursor: pointer;
+    
+}
+
+.new-message-send:hover {
+    background-color: #467fdb;
+}
 
 /* MAIL LIST */
