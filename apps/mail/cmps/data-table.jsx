@@ -19,7 +19,8 @@ export function DataTable({ mail, onRemoveMail, time }) {
 
         <tr className={isExpanted ? 'mail-list-message on-message' : 'mail-list-message'} onClick={() => { setIsExpanted(!isExpanted) }}>
             {/* {mail.isStarred ? <td>⭐</td> : <td><i className="fa">&#xf005;</i></td>} */}
-            <td onClick={() => { setStar() }}>{mail.isStarred ? <a>⭐</a> : <i className="fa">&#xf005;</i>}</td>
+            {/* <td onClick={() => { setStar() }}>{mail.isStarred ? <a>⭐</a> : <i className="fa-regular fa-star"></i>}</td> */}
+            <td onClick={() => { setStar() }}>{mail.isStarred ? <i className="fa-solid fa-star"></i> : <i className="fa-regular fa-star"></i>}</td>
             <td>{mail.name}</td>
             <td>{mail.subject}</td>
             <td className='preview-time'>{time}</td>

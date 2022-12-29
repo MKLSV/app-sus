@@ -45,7 +45,9 @@ tr {
 
 }
 
-
+.fa-solid.fa-star{
+    color: rgb(255, 153, 0);
+}
 
 .mail-list {
     /* display: none; */
