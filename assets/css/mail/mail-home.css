@@ -29,6 +29,10 @@ tr {
 .on-message{
     background-color: rgb(169, 193, 207);
 }
+.preview-btns{
+    display: flex;
+    justify-content: flex-end;
+}
 
 
 
