@@ -16,11 +16,13 @@ export function DataTable({ mail, onRemoveMail, time }) {
             <td>{mail.name}</td>
             <td>{mail.subject}</td>
             <td>{time}</td>
-            {/* <td><Link to={`/mail/${mail.id}`}><button>📖</button></Link></td>
-                <td><button onClick={() => onRemoveMail(mail.id)}>🧺</button></td> */}
+            <td  className='preview-btns table-btns'>
+                <Link hidden={isExpanted} to={`/mail/${mail.id}`}><button>📖</button></Link>
+                <button hidden={isExpanted} onClick={() => onRemoveMail(mail.id)}>🧺</button>
+            </td>
         </tr>
         <tr hidden={!isExpanted}>
-            <td colSpan='4' className='preview-message'>
+            <td colSpan='5' className='preview-message'>
                 <div className='preview-header'>
                     <a className='preview-subject'>{mail.subject}</a>
                     <div className='preview-btns'>
