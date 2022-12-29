@@ -2,7 +2,7 @@ const { Link } = ReactRouterDOM
 const { useState, useEffect, Fragment } = React
 
 import { utilService } from "../../../services/util.service.js"
-import { DataTable } from "./data-table.jsx"
+import { MailPreview } from "./mail-preview.jsx"
 
 
 export function MailList({ mails, onRemoveMail, onShow }) {
@@ -18,10 +18,10 @@ export function MailList({ mails, onRemoveMail, onShow }) {
         return (utilService.getDay(time) + ' ' + utilService.getMonthShortName(time))
     }
 
-
+    if (!mails.length) return <h1>No mails to show...</h1>
     return <table className='mail-list' hidden={!onShow}>
         <tbody>
-            {mails.map(mail => <DataTable key={mail.id} mail={mail} time={getTime(mail.sentAt)} onRemoveMail={onRemoveMail} />)}
+            {mails.map(mail => <MailPreview key={mail.id} mail={mail} time={getTime(mail.sentAt)} onRemoveMail={onRemoveMail} />)}
         </tbody>
     </table>
 
