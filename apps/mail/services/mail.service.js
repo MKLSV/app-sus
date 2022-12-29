@@ -26,6 +26,7 @@ function _createMails() {
                 body: 'Would love to catch up sometimes',
                 isRead: false,
                 sentAt: Date.now(),
+                isStarred: false,
                 removedAt: null,
                 from: 'momo@momo.com',
                 to: 'user@appsus.com'
@@ -38,6 +39,7 @@ function _createMails() {
                 body: 'Would love to catch up sometimes',
                 isRead: false,
                 sentAt: 1551133130594,
+                isStarred: false,
                 removedAt: null,
                 from: 'momo@momo.com',
                 to: 'user@appsus.com'
@@ -50,6 +52,7 @@ function _createMails() {
                 body: 'Would love to catch up sometimes',
                 isRead: false,
                 sentAt: 1551133000594,
+                isStarred: false,
                 removedAt: null,
                 from: 'momo@momo.com',
                 to: 'user@appsus.com'
@@ -62,6 +65,7 @@ function _createMails() {
                 body: 'Wore youuld love to ve to catch up sometimes',
                 isRead: false,
                 sentAt: 1551033930594,
+                isStarred: false,
                 removedAt: null,
                 from: 'momo@momo.com',
                 to: 'user@appsus.com'
@@ -74,6 +78,7 @@ function _createMails() {
                 body: 'WoHow aare youuld love to catch uHow aare youp sometimes',
                 isRead: false,
                 sentAt: 1550533930594,
+                isStarred: false,
                 removedAt: null,
                 from: 'momo@momo.com',
                 to: 'user@appsus.com'
@@ -86,6 +91,7 @@ function _createMails() {
                 body: 'Would love to caWould love toWould love totch up sometimes',
                 isRead: false,
                 sentAt: 155110930594,
+                isStarred: true,
                 removedAt: null,
                 from: 'momo@momo.com',
                 to: 'user@appsus.com'

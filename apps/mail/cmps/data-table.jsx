@@ -8,15 +8,14 @@ export function DataTable({ mail, onRemoveMail, time }) {
 
 
     const [isExpanted, setIsExpanted] = useState(false)
-
     return <Fragment>
 
         <tr className={isExpanted ? 'mail-list-message on-message' : 'mail-list-message'} onClick={() => { setIsExpanted(!isExpanted) }}>
-            <td>⭐</td>
+            {mail.isStarred ? <td>⭐</td> : <td><i className="fa">&#xf005;</i></td>}
             <td>{mail.name}</td>
             <td>{mail.subject}</td>
             <td>{time}</td>
-            <td  className='preview-btns table-btns'>
+            <td className='preview-btns table-btns'>
                 <Link hidden={isExpanted} to={`/mail/${mail.id}`}><button>📖</button></Link>
                 <button hidden={isExpanted} onClick={() => onRemoveMail(mail.id)}>🧺</button>
             </td>

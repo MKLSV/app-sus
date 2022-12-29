@@ -29,9 +29,10 @@ tr {
 .on-message{
     background-color: rgb(169, 193, 207);
 }
-.preview-btns{
+.table-btns{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
 
