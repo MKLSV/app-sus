@@ -14,13 +14,14 @@ export function NoteAdd({ setNotes, notes, onSaveNote }) {
 
   function handleChange({ target }) {
     let { value, type, name: field } = target;
+    if (noteToAddType === 'note-video') value = value.replace('watch?v=', 'embed/')
     console.log(target);
     setNoteToAdd((prevNote) => ({
       ...prevNote, type:noteToAddType,
       info: { ...prevNote.info, [field]: value },
-    }))
-    
+    })) 
   }
+
 
   function onSaveNote(ev) {
     ev.preventDefault()
