@@ -33,7 +33,15 @@
 }
 
 .note-btns {
+  gap: 0.2rem;
   padding: 1rem;
+  cursor: pointer;
+}
+
+.note-type-btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .note-img {

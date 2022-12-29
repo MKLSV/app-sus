@@ -112,7 +112,7 @@ function getEmptyNote() {
   return {
     id: "",
     createdAt: "",
-    type: "note-txt",
+    type: "",
     isPinned: false,
     info: { txt: "", title: "" },
   };
