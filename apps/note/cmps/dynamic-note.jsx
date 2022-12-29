@@ -1,9 +1,9 @@
 const { useState } = React;
 
 import { NoteImg } from "./note-img.jsx";
-import { NotePreview } from "./note-preview";
-import { NoteTodos } from "./note-todos";
-import { NoteTxt } from "./note-txt";
+import { NoteTodos } from "./note-todos.jsx";
+import { NoteTxt } from "./note-txt.jsx";
+import { NoteVideo } from "./note-video.jsx";
 
 export function DynamicNote({ type, info }) {
 
@@ -20,7 +20,7 @@ export function DynamicNote({ type, info }) {
         return <NoteTxt info={info}/>;
       break;
     case "note-video":
-        return <NotePreview info={info}/>;
+        return <NoteVideo info={info}/>;
       break;
 
     default:

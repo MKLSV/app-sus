@@ -153,6 +153,15 @@ function _createNotes() {
         },
       },
       {
+        id: "n104",
+        type: "note-video",
+        isPinned: false,
+        info: {
+          title: "my video",
+          url: "https://www.youtube.com/embed/tgbNymZ7vqY",
+        },
+      },
+      {
         id: utilService.makeId(),
         type: "note-img",
         isPinned: false,

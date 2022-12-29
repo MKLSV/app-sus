@@ -1,11 +1,12 @@
+export function NoteVideo({ info }) {
 
-
-
-export function NoteVideo() {
-
-    return <div className="note-video">
-        <h1>note video</h1>
-        
+  return (
+    <div className="note-video">
+        <div className="note-video-container">
+        <iframe src={info.url}></iframe>
+        </div>
+      <h2>{info.title}</h2>
+      
     </div>
-
+  );
 }
