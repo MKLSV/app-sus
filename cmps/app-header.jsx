@@ -15,7 +15,7 @@ export function AppHeader() {
             <NavLink to="/mail">Mail <i className="fa-solid fa-envelope"></i></NavLink>
             <NavLink to="/note">Note <i className="fa-solid fa-note-sticky"></i></NavLink>
         </nav>
-        <a className="menu-toggle" onClick={() => setIsExpanted(!isExpanted)}><i className="fa-solid fa-bars"></i></a>
+        <a className="menu-toggle" onClick={() => setIsExpanted(!isExpanted)}><i className="fa-solid fa-bars fa-2xl"></i></a>
 
     </header>
 }

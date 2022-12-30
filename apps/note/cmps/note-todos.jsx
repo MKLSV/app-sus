@@ -1,11 +1,16 @@
+const {useState} = React
+
 export function NoteTodos({ info }) {
+  const [data, setData] = useState('')
+  
+
   return (
-    <div className="note-todos">
+    <div >
         {info.title && <h1>{info.title}</h1>}
         {info.txt && <p>{info.txt}</p>}
-      <ul>
+      <ul >
         {info.todos.map((todo, idx) => (
-          <li key={idx}>{todo.txt}</li>
+          <li key={idx} >{todo.txt}</li>
         ))}
       </ul>
     </div>

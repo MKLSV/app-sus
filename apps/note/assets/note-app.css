@@ -1,7 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.body {
+  font-family: 'Roboto', sans-serif;
+}
+
 .notes-input {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+  width: 37.5rem;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16px;
+  resize: none;
+  box-shadow: 0 1px 7px rgb(128, 128, 128);
+}
+
+.note-add {
+  display: flex;
+    justify-content: center;
+    margin-top: 2.0625rem;
 }
 
 .note-list {
@@ -15,6 +35,33 @@
   list-style-type: none;
   margin-top: 5rem;
 }
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width:  36.625rem;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
 
 .note-preview {
   width: 15rem;
@@ -35,6 +82,28 @@
 .note-preview p {
   padding: 1rem;
   margin: 0;
+}
+
+.color-picker button {
+  border: none;
+  outline: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+}
+
+.color-picker button:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.color-picker button:active {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.color-picker button.selected {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 iframe {
@@ -76,6 +145,15 @@ iframe {
   color:#4d5d80
 }
 
+i.add-note-btn{
+  color: #6E85B7;
+}
+
+i.add-note-btn:hover {
+  cursor: pointer;
+  color:#4d5d80
+}
+
 .note-img {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
@@ -93,17 +171,6 @@ iframe {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-form {
-  width: 37.5rem;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background-color: #fff;
-  font-size: 16px;
-  resize: none;
-  box-shadow: 0 1px 7px rgb(128, 128, 128);
 }
 
 form input {
