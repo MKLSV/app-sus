@@ -14,15 +14,29 @@ export function NoteAdd({ setNotes, notes, onSaveNote }) {
 
   function handleChange({ target }) {
     let { value, type, name: field } = target;
+    console.log(value);
     if (!value) return
     if (noteToAddType === 'note-video') value = value.replace('watch?v=', 'embed/')
-    console.log(target);
-    setNoteToAdd((prevNote) => ({
-      ...prevNote, type:noteToAddType,
-      info: { ...prevNote.info, [field]: value },
-    })) 
+    if(noteToAddType === 'note-todos'){
+      setNoteToAdd((prevNote) => ({
+        ...prevNote, type:noteToAddType,
+        info: { ...prevNote.info,[field]:value , todos: stringToList(value) },
+      })) 
+      console.log(noteToAdd);
+    } else {
+      setNoteToAdd((prevNote) => ({
+        ...prevNote, type:noteToAddType,
+        info: { ...prevNote.info, [field]: value },
+      })) 
+    }
+    
   }
 
+  function stringToList(string) {
+  const items = string.split(',');
+  const list = items.map(item => ({ txt: item }));
+  return list;
+  }
 
   function onSaveNote(ev) {
     ev.preventDefault()
@@ -33,13 +47,15 @@ export function NoteAdd({ setNotes, notes, onSaveNote }) {
 
   function onSetNoteType(type) {
     setNoteToAddType(type)
+    noteToAdd.info.title = ''
+    noteToAdd.info.txt = ''
   }
 
   return (
     <section className="note-add">
       <div className="notes-input">
 
-        <DynamicForm noteToAddType={noteToAddType} onSaveNote={onSaveNote} handleChange={handleChange} notes={notes} setNotes={setNotes} noteToAdd={noteToAdd}/>
+        <DynamicForm noteToAddType={noteToAddType} onSaveNote={onSaveNote} handleChange={handleChange} notes={notes} setNotes={setNotes} noteToAdd={noteToAdd} setNoteToAdd={setNoteToAdd}/>
 
         <div className="note-type-btns">
         <i className="fa-brands fa-youtube fa-xl note-type-btn" onClick={()=> onSetNoteType('note-video')}></i>

@@ -4,7 +4,7 @@ import { TodosForm } from "./todos-form.jsx";
 import { VideoForm } from "./video-form.jsx";
 
 
-export function DynamicForm({noteToAddType, onSaveNote, notes, setNotes, handleChange, noteToAdd }) {
+export function DynamicForm({noteToAddType, onSaveNote, notes, setNotes, handleChange, noteToAdd, setNoteToAdd }) {
 
     
     switch (noteToAddType) {
@@ -12,7 +12,7 @@ export function DynamicForm({noteToAddType, onSaveNote, notes, setNotes, handleC
         return <ImgForm noteToAddType={noteToAddType} onSaveNote={onSaveNote} handleChange={handleChange} notes={notes} setNotes={setNotes} noteToAdd={noteToAdd}/>;
           break;
         case "note-todos":
-            return <TodosForm noteToAddType={noteToAddType} onSaveNote={onSaveNote} handleChange={handleChange} notes={notes} setNotes={setNotes} noteToAdd={noteToAdd}/>;
+            return <TodosForm noteToAddType={noteToAddType} onSaveNote={onSaveNote} handleChange={handleChange} notes={notes} setNotes={setNotes} noteToAdd={noteToAdd} setNoteToAdd={setNoteToAdd}/>;
           break;
         case "note-txt":
             return <TextForm noteToAddType={noteToAddType} onSaveNote={onSaveNote} handleChange={handleChange} notes={notes} setNotes={setNotes} noteToAdd={noteToAdd}/>;
