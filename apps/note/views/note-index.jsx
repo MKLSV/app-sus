@@ -11,9 +11,6 @@ export function NoteIndex() {
   const [selectedNote, setSelectedNote] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-
-  const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-
   useEffect(() => {
     loadNotes();
   }, []);

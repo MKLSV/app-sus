@@ -1,4 +1,4 @@
-const { useState } = React;
+const { useState, useEffect } = React;
 
 import { NoteTxt } from "../cmps/note-txt.jsx";
 import { NoteImg } from "../cmps/note-img.jsx";
@@ -6,18 +6,25 @@ import { NoteVideo } from "../cmps/note-video.jsx";
 import { NoteTodos } from "../cmps/note-todos.jsx";
 import { ColorPicker } from "../cmps/color-picker.jsx";
 import { DynamicNote } from "./dynamic-note.jsx";
+import { noteService } from "../services/note.service.js";
 
 
 export function NotePreview({ note, onSelectNote, onRemoveNote }) {
   const [selectedColor, setSelectedColor] = useState("white");
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   
+  useEffect(() => {
+    noteService.get(note.id).then(note => {
+      const savedColor = note.style.backgroundColor
+      if (savedColor) {
+        setSelectedColor(savedColor);
+      }
+    })
+    
+  }, []);
+
   function handleColorClick() {
     setIsPickerOpen(!isPickerOpen);
-  }
-
-  function onSelectColor(noteId) {
-    console.log("select color!", noteId);
   }
 
   return (
@@ -30,7 +37,7 @@ export function NotePreview({ note, onSelectNote, onRemoveNote }) {
         <i className="fa-solid fa-lg fa-thumbtack"></i>
         <i className="fa-solid fa-lg fa-palette"  onClick={handleColorClick}></i>
         {isPickerOpen && (
-        <ColorPicker color={selectedColor} setColor={setSelectedColor} />
+        <ColorPicker color={selectedColor} setColor={setSelectedColor} note={note}/>
       )}
 
         <i

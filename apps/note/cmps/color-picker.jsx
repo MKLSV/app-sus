@@ -1,6 +1,8 @@
 const { useState } = React;
 
-export function ColorPicker({ color, setColor }) {
+import { noteService } from "../services/note.service.js";
+
+export function ColorPicker({ color, setColor, note }) {
   const colors = [
     "#F28B82",
     "#FBBC05",
@@ -15,7 +17,13 @@ export function ColorPicker({ color, setColor }) {
     "#E8EAED",
   ];
 
-  
+  function handleColorPick(color) {
+    setColor(color)
+    note.style.backgroundColor = color
+    noteService.save(note).then(note => {
+        console.log(note);
+    })
+  }
 
   return (
     <div className="color-picker">
@@ -23,7 +31,7 @@ export function ColorPicker({ color, setColor }) {
         <button
           key={color}
           style={{ backgroundColor: color }}
-          onClick={() => setColor(color)}
+          onClick={() => handleColorPick(color)}
         />
       ))}
     </div>

@@ -175,7 +175,7 @@ function _createNotes() {
           url: "https://www.deadcoderising.com/content/images/2018/04/impressive.gif",
         },
         style: {
-          backgroundColor: '"#fff48f',
+          backgroundColor: '#fff48f',
           color: "black",
           fontSize: 15,
           fontFamily: "Impact",
@@ -192,7 +192,7 @@ function _createNotes() {
           url: "https://b1694534.smushcdn.com/1694534/wp-content/uploads/2021/06/0_fQTD4DjK71YMUtIS.gif?lossy=1&strip=1&webp=1",
         },
         style: {
-          backgroundColor: '"#fff48f',
+          backgroundColor: '#fff48f',
           color: "black",
           fontSize: 15,
           fontFamily: "Impact",
