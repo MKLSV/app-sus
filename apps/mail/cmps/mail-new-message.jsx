@@ -1,32 +1,43 @@
 const { useState } = React
+const { Link, useNavigate } = ReactRouterDOM
 
-export function NewMail({ onShow }) {
+import { mailService } from "../services/mail.service.js";
 
-    const [inputs, setInputs] = useState({});
 
-    const handleChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs(values => ({ ...values, [name]: value }))
+export function NewMail() {
+    const [mailToAdd, setMailToAdd] = useState(mailService.getEmptyMail())
+    const navigate = useNavigate()
+
+    function handleChange({ target }) {
+
+        let { value, name } = target
+        setMailToAdd((prevVal) => ({ ...prevVal, [name]: value }))
+
     }
-    const handleSubmit = (event) => {
+    function onSendMail(event) {
         event.preventDefault();
-        console.log('okaay')
+        mailService.save(mailToAdd).then((mail) => {
+            console.log(mail)
+            navigate('/mail')
+        })
     }
 
-    function onRemove(){
-        console.log('remove')
+    function onDraft() {
+        console.log('saved to draft')
     }
 
-    return <div className='new-message-container' hidden={!onShow}>
-        <h3 className='new-message-header'>New Message</h3>
+    return <div className='new-message-container'>
+        <div className='new-message-header'>
+            <h3>New Message</h3>
+            <a className='new-message-trash' onClick={onDraft}><i className="fa-solid fa-x"></i></a>
+        </div>
 
-        <form className='new-message-form' onSubmit={handleSubmit}>
+        <form className='new-message-form' onSubmit={onSendMail}>
             <input
                 className='msg-input-form'
                 type="email"
-                id="mail"
-                name="user_name"
+                id="to"
+                name="to"
                 placeholder="To"
                 onChange={handleChange}
             />
@@ -40,39 +51,16 @@ export function NewMail({ onShow }) {
 
 
             <textarea className='text-input-form'
-                id="msg"
-                name="user_message"
+                id="body"
+                name="body"
                 onChange={handleChange} />
 
 
 
             <div className='new-message-btns'>
                 <button className='new-message-send' type="submit">Send</button>
-                <a className='new-message-trash' onClick={onRemove}><i className="fa-regular fa-trash-can fa-xl"></i></a>
+                <Link to="/mail" className='new-message-trash'><i className="fa-regular fa-trash-can fa-xl"></i></Link>
             </div>
         </form>
     </div>
-    // return <div className='new-message-container' hidden={!onShow}>
-    //     <h3 className='new-message-header'>New Message</h3>
-    //     <form className='new-message-form' onSubmit={onSend}>
-
-    //         <li className='msg-form'>
-    //             <label className='msg-form-label' htmlFor="name">To:</label>
-    //             <input className='msg-input-form' type="email" id="mail" name="user_name" />
-    //         </li>
-
-    //         <li className='msg-form'>
-    //             <label className='msg-form-label' htmlFor="mail">Subject:</label>
-    //             <input className='msg-input-form' type="text" id="name" name="user_email" />
-    //         </li>
-    //         <li className='msg-form'>
-    //             <textarea className='text-input-form' id="msg" name="user_message"></textarea>
-    //         </li>
-
-    //         <div className='new-message-btns'>
-    //             <button className='new-message-send' onClick={() => onSend}>Send</button>
-    //             <a className='new-message-trash'><i className="fa-regular fa-trash-can fa-xl"></i></a>
-    //         </div>
-    //     </form>
-    // </div>
 }

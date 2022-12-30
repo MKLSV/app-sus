@@ -2,6 +2,7 @@ const Router = ReactRouterDOM.HashRouter
 const { useState, useEffect, Fragment } = React
 const { Outlet } = ReactRouterDOM
 
+import { MailDetails } from "../cmps/mail-details.jsx"
 import { MailHeader } from "../cmps/mail-header.jsx"
 import { MailList } from "../cmps/mail-list.jsx"
 import { MailNav } from "../cmps/mail-nav.jsx"
@@ -12,7 +13,6 @@ import { mailService } from "../services/mail.service.js"
 export function MailIndex() {
 
     const [filterBy, setFilterBy] = useState('inbox')
-    const [onShow, setOnShow] = useState(false)
     const [mails, setMails] = useState(null)
 
 
@@ -21,10 +21,6 @@ export function MailIndex() {
         loadMails()
     }, [filterBy])
 
-
-    function onNewMail() {
-        setOnShow(!onShow)
-    }
 
     function loadMails() {
         mailService.query(filterBy).then(mails => setMails(mails))
@@ -52,25 +48,14 @@ export function MailIndex() {
     }
 
     if (!mails) return <h1>Loading...</h1>
-    
-    // return <Fragment>
-    //     <MailHeader />
-    //     <div className='mail-container'>
-    //         <MailNav onNewMail={onNewMail} />
-    //         <div className='nested-route'>
-    //             <Outlet />
-    //         </div>
-    //         {/* <MailList onShow={!onShow} mails={mails} onRemoveMail={onRemoveMail} />
-    //         <NewMail onShow={onShow} /> */}
-    //     </div>
-    // </Fragment>
+
     return <div className='mail-app'>
 
         <MailHeader />
         <div className='mail-container'>
-            <MailNav onNewMail={onNewMail} onSetFilter={onSetFilter} />
-            <MailList onShow={!onShow} mails={mails} onRemoveMail={onRemoveMail} />
-            <NewMail onShow={onShow} />
+            <MailNav onSetFilter={onSetFilter} />
+            <MailList mails={mails} onRemoveMail={onRemoveMail} />
+            <MailDetails/>
         </div>
     </div>
 

@@ -21,10 +21,11 @@ tr {
     border-bottom: 1px solid rgb(162, 162, 162);
 }
 
-table{
-    height:35px;
-    
+table {
+    height: 35px;
+
 }
+
 .mail-list-message:hover {
     background-color: rgb(215, 230, 239);
     cursor: pointer;
@@ -110,6 +111,7 @@ ul.mail-nav-list {
 }
 
 
+
 /* PREVIEW */
 
 .preview-message {
@@ -168,12 +170,16 @@ ul.mail-nav-list {
 }
 
 .new-message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
     color: rgb(255, 255, 255);
     background-color: rgb(85, 85, 85);
-    padding: 6px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
+
 
 .new-message-form {
     display: flex;
@@ -198,12 +204,12 @@ ul.mail-nav-list {
 .new-message-send {
     padding: 0 16px;
     border-radius: 10px;
-    border:none;
+    border: none;
     background-color: #0b57d0;
-    color:white;
+    color: white;
     font-size: 14px;
     cursor: pointer;
-    
+
 }
 
 .new-message-send:hover {
