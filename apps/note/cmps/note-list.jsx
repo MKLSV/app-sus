@@ -2,7 +2,9 @@ const { Link } = ReactRouterDOM;
 
 import { NotePreview } from "./note-preview.jsx";
 
-export function NoteList({ notes, onRemoveNote, onSelectNote }) {
+
+
+export function NoteList({ notes, onRemoveNote, onSelectNote}) {
   return (
     <ul className="note-list flex">
       {notes.map((note) => (

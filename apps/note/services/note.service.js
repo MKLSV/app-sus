@@ -115,6 +115,7 @@ function getEmptyNote() {
     type: "",
     isPinned: false,
     info: { txt: "", title: "" },
+    style:{backgroundColor:""}
   };
 }
 
@@ -144,6 +145,7 @@ function _createNotes() {
         id: "n103",
         type: "note-todos",
         isPinned: false,
+        style: { backgroundColor: "#00d" },
         info: {
           title: "Get my stuff together",
           todos: [
@@ -156,6 +158,7 @@ function _createNotes() {
         id: "n104",
         type: "note-video",
         isPinned: false,
+        style: { backgroundColor: "#00d" },
         info: {
           title: "my video",
           url: "https://www.youtube.com/embed/tgbNymZ7vqY",
