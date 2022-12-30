@@ -7,9 +7,9 @@ import { NoteVideo } from "./note-video.jsx";
 
 export function DynamicNote({ type, info }) {
 
-    const [cmpType, setCmpType] = useState(type)
+    // const [cmpType, setCmpType] = useState(type)
 
-  switch (cmpType) {
+  switch (type) {
     case "note-img":
     return <NoteImg info={info}/>;
       break;

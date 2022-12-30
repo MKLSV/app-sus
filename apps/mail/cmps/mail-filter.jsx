@@ -2,7 +2,7 @@
 
 export function MailFilter() {
     return <div className='mail-search'>
-        <button>🔍</button>
+        <a><i className="fa-solid fa-magnifying-glass"></i></a>
         <input type='text' name='mail-search' />
         <select name="mail-search-option" id="mail-search-option">
             <option value="all">All</option>
