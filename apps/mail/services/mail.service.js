@@ -2,12 +2,33 @@ import { utilService } from "../../../services/util.service.js";
 import { storageService } from '../../../services/async-storage.service.js'
 
 const MAILS_KEY = 'mailDB'
+const USER_KEY = 'userDB'
 _createMails()
+_loggedUser()
 
 export const mailService = {
     query,
     remove,
-    save
+    save,
+    getEmptyMail,
+    get,
+    getUser
+}
+
+function _loggedUser() {
+    const loggedinUser = {
+        email: 'user@appsus.com',
+        fullname: 'Mahatma Appsus'
+    }
+    utilService.saveToStorage(USER_KEY, loggedinUser)
+}
+
+function getUser(){
+    return utilService.loadFromStorage(USER_KEY)
+}
+
+function get(mailId) {
+    return storageService.get(MAILS_KEY, mailId)
 }
 
 function query(filterBy = 'inbox') {
@@ -42,6 +63,25 @@ function save(mail) {
 function remove(mailId) {
     return storageService.remove(MAILS_KEY, mailId)
 }
+
+function getEmptyMail() {
+    const loggedinUser = utilService.loadFromStorage(USER_KEY)
+    return {
+        name: loggedinUser.fullname,
+        subject: '',
+        body: '',
+        onTrash: false,
+        isRead: false,
+        isDraft: false,
+        isSent: true,
+        sentAt: Date.now(),
+        isStarred: false,
+        removedAt: null,
+        from: loggedinUser.email,
+        to: ''
+    }
+}
+
 function _createMails() {
     let mails = utilService.loadFromStorage(MAILS_KEY)
     if (!mails || !mails.length) {

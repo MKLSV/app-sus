@@ -9,6 +9,7 @@ import { NoteIndex } from "./apps/note/views/note-index.jsx"
 import { NoteDetails } from "./apps/note/views/note-details.jsx"
 import { NewMail } from "./apps/mail/cmps/mail-new-message.jsx"
 import { MailList } from "./apps/mail/cmps/mail-list.jsx"
+import { MailDetails } from "./apps/mail/cmps/mail-details.jsx"
 
 
 
@@ -19,11 +20,9 @@ export function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/mail" element={<MailIndex />}>
-                    {/* <Route path="/mail" element={<MailList/>}/>
-                    <Route path="/mail/list" element={<MailList/>}/>
-                    <Route path="/mail/new-mail" element={<NewMail/>}/> */}
-                </Route>
+                <Route path="/mail/new-mail" element={<NewMail />} />
+                <Route path="/mail/:mailId" element={<MailDetails />} />
+                <Route path="/mail" element={<MailIndex />} />
                 <Route path="/note" element={<NoteIndex />} />
                 <Route path="/note/:noteId" element={<NoteDetails />} />
             </Routes>

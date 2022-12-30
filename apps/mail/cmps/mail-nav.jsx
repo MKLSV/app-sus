@@ -2,7 +2,7 @@ const { NavLink, Link } = ReactRouterDOM
 const { useState } = React
 
 
-export function MailNav({ onNewMail, onSetFilter }) {
+export function MailNav({ onSetFilter }) {
 
     function setFilter(type) {
         onSetFilter(type)
@@ -10,7 +10,7 @@ export function MailNav({ onNewMail, onSetFilter }) {
 
     return <div className='mail-nav'>
 
-        <section className='new-mail-btn' onClick={() => onNewMail()}><i className="fa-solid fa-pencil"></i><a>Compose</a></section>
+        <Link to="/mail/new-mail" className='new-mail-btn'><i className="fa-solid fa-pencil"></i>Compose</Link>
 
         <ul className='mail-nav-list'>
             <li className='mail-nav-btns'><i className="fa-solid fa-envelope-open-text"></i><a onClick={() => { setFilter('inbox') }}>Inbox</a></li>
