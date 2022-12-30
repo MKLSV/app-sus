@@ -32,11 +32,30 @@
   padding: 1rem;
 }
 
-.note-btns {
+.note-preview p {
   padding: 1rem;
+  margin: 0;
+}
+
+iframe {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.note-btns {
+  padding: 1.2rem 1rem 1.5rem 1rem;
   color: #6E85B7;
   gap: 1rem;
     display: flex;
+    justify-content: space-around;
+    opacity: 0;
+    transition-duration: 0.218s;
+    transition-property: opacity;
+    transition-timing-function: ease-in;
+}
+
+.note-btns:hover {
+  opacity: 1;
 }
 
 .note-btn:hover {
