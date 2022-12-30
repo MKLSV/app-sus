@@ -10,7 +10,9 @@ export const mailService = {
     query,
     remove,
     save,
-    getEmptyMail
+    getEmptyMail,
+    get,
+    getUser
 }
 
 function _loggedUser() {
@@ -19,6 +21,14 @@ function _loggedUser() {
         fullname: 'Mahatma Appsus'
     }
     utilService.saveToStorage(USER_KEY, loggedinUser)
+}
+
+function getUser(){
+    return utilService.loadFromStorage(USER_KEY)
+}
+
+function get(mailId) {
+    return storageService.get(MAILS_KEY, mailId)
 }
 
 function query(filterBy = 'inbox') {

@@ -21,9 +21,10 @@ export function NewMail() {
             navigate('/mail')
         })
     }
-
+    
     function onDraft() {
         console.log('saved to draft')
+        navigate('/mail')
     }
 
     return <div className='new-message-container'>

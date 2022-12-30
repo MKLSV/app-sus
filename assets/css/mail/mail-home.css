@@ -26,18 +26,20 @@ table {
 
 }
 
-.mail-list-message:hover {
-    background-color: rgb(215, 230, 239);
-    cursor: pointer;
-    box-shadow: 1px 1px 2px 1px rgba(71, 71, 71, 0.2);
-}
 
 .on-message {
     background-color: rgb(169, 193, 207);
 }
 
+
+
 .table-btns {
     display: none;
+}
+.mail-list-message:hover {
+    background-color: rgb(215, 230, 239);
+    cursor: pointer;
+    box-shadow: 1px 1px 2px 1px rgba(71, 71, 71, 0.2);
 }
 
 .mail-list-message:hover .preview-time {
@@ -57,13 +59,14 @@ table {
 }
 
 .mail-list {
-    /* display: none; */
-    background-color: rgb(225, 235, 241);
+    background-color: rgb(255, 255, 255);
     border-spacing: 0;
     border-collapse: collapse;
     padding: 15px;
 }
-
+.is-read{
+    background-color: rgba(209, 219, 226, 0.701);
+}
 
 .mail-nav-list {
     list-style-type: none;
@@ -216,4 +219,85 @@ ul.mail-nav-list {
     background-color: #467fdb;
 }
 
-/* MAIL LIST */
+/* MAIL DETAILS */
+
+.mail-details{
+    margin: 0 150px;
+    height: 90vh;
+    background-color:rgb(255, 255, 255);
+    /* box-shadow: 10px -5px 8px -10px rgba(30, 30, 30, 0.8), -10px -5px 8px -10px rgba(32, 32, 32, 0.8); */
+    box-shadow: 10px -5px 8px -10px rgba(30, 30, 30, 0.8), -10px -5px 8px -10px rgba(32, 32, 32, 0.8);
+
+}
+
+.mail-details-header{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 9px;
+}
+
+.mail-details-header-subject{
+    padding: 30px;
+    font-size: x-large;
+}
+.mail-details-header-subject-back{
+    padding: 30px;
+}
+.mail-details-header-btns{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-right: 37px;
+}
+.mail-details-header-btn{
+    cursor: pointer;
+}
+
+.mail-details-info-a{
+    display: flex;
+    gap: 20px;
+}
+.mail-detail-image{
+    width: 70px;
+    height: 100%;
+}
+.mail-detail-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    margin-left: 30px;
+}
+.mail-details-container{
+    width: 80%;
+}
+.mail-details-contact{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.mail-details-name{
+    font-size: large;
+    font-weight: 600;
+}
+.mail-details-mail{
+    color: grey;
+}
+.mail-details-to{
+    color: gray;
+}
+.mail-details-info{
+    display: flex;
+    justify-content: space-between;
+}
+.mail-details-time-star{
+    display: flex;
+    gap: 5px;
+    color: gray;
+}
+.mail-details-contant{
+    margin-top: 20px;
+
+}
+.mail-details-text{
+
+}

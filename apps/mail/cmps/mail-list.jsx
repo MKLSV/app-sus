@@ -5,7 +5,7 @@ import { utilService } from "../../../services/util.service.js"
 import { MailPreview } from "./mail-preview.jsx"
 
 
-export function MailList({ mails, onRemoveMail}) {
+export function MailList({ mails, onRemoveMail }) {
 
     function getTime(time) {
         const currTime = Date.now()

@@ -1,6 +1,5 @@
 const Router = ReactRouterDOM.HashRouter
 const { useState, useEffect, Fragment } = React
-const { Outlet } = ReactRouterDOM
 
 import { MailDetails } from "../cmps/mail-details.jsx"
 import { MailHeader } from "../cmps/mail-header.jsx"
@@ -55,7 +54,6 @@ export function MailIndex() {
         <div className='mail-container'>
             <MailNav onSetFilter={onSetFilter} />
             <MailList mails={mails} onRemoveMail={onRemoveMail} />
-            <MailDetails/>
         </div>
     </div>
 
