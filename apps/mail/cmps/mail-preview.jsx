@@ -35,13 +35,13 @@ export function MailPreview({ mail, onRemoveMail, time }) {
 
     return <Fragment>
         <tr className={mail.isRead ? 'mail-list-message is-read' : 'mail-list-message'} onClick={() => { goToDetails() }}>
-            <td onClick={setStar}>{mail.isStarred ? <i className="fa-solid fa-star fa-lg"></i> : <i className="fa-regular fa-star fa-lg"></i>}</td>
+            <td className="mail-list-starred" onClick={setStar}>{mail.isStarred ? <i className="fa-solid fa-star fa-lg"></i> : <i className="fa-regular fa-star fa-lg"></i>}</td>
             <td>{mail.name}</td>
             <td>{mail.subject}</td>
             <td className='preview-time'>{time}</td>
             <td className='preview-btns table-btns'>
-                <a onClick={setRead}> {mail.isRead ? <i className="fa-regular fa-envelope fa-lg"></i> : <i className="fa-regular fa-envelope-open fa-lg"></i>}</a>
-                <a onClick={removeMail}><i className="fa-regular fa-trash-can fa-lg"></i></a>
+                <a className='preview-btn' onClick={setRead}> {mail.isRead ? <i className="fa-regular fa-envelope fa-lg"></i> : <i className="fa-regular fa-envelope-open fa-lg"></i>}</a>
+                <a className='preview-btn' onClick={removeMail}><i className="fa-regular fa-trash-can fa-lg"></i></a>
             </td>
         </tr>
     </Fragment>

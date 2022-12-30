@@ -4,10 +4,9 @@ const { useState } = React
 
 export function MailNav({ onSetFilter }) {
 
-    function setFilter(type) {
-        onSetFilter(type)
+    function setFilter(filterBy) {
+        onSetFilter(filterBy)
     }
-
     return <div className='mail-nav'>
 
         <Link to="/mail/new-mail" className='new-mail-btn'><i className="fa-solid fa-pencil"></i>Compose</Link>

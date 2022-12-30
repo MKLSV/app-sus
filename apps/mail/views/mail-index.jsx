@@ -13,6 +13,7 @@ export function MailIndex() {
 
     const [filterBy, setFilterBy] = useState('inbox')
     const [mails, setMails] = useState(null)
+    console.log(filterBy)
 
 
     useEffect(() => {
@@ -28,16 +29,21 @@ export function MailIndex() {
     function onSetFilter(filterBy) {
         setFilterBy(filterBy)
     }
+    // function onSetFilter(filter,type) {
+    //     if(type === 'category') filterBy.type = filter
+    //     if(type === 'value') filterBy.value = filter
+    //     console.log(filterBy)
+    //     setFilterBy(filterBy)
+    // }
 
     function onRemoveMail(mail) {
         const mailId = mail.id
-        if(mail.onTrash) {
+        if (mail.onTrash) {
             mailService.remove(mailId).then(() => {
                 const updateMails = mails.filter(mail => mail.id !== mailId)
                 setMails(updateMails)
             })
         } else {
-            console.log(mails)
             mail.onTrash = true
             mailService.save(mail)
             const updateMails = mails.filter(mail => mail.id !== mailId)
@@ -46,13 +52,18 @@ export function MailIndex() {
 
     }
 
-    if (!mails) return <h1>Loading...</h1>
+    function inboxConst() {
+        const inbox = mails.filter(mail => mail.isSent !== true && mail.isDraft !== true && mail.onTrash !== true && mail.isRead !== false)
+        if(inbox.length > 0) return inbox.length
+    }
+
+    if (!mails) return <h1 className="loading"></h1>
 
     return <div className='mail-app'>
 
-        <MailHeader />
+        <MailHeader onSetFilter={onSetFilter}/>
         <div className='mail-container'>
-            <MailNav onSetFilter={onSetFilter} />
+            <MailNav onSetFilter={onSetFilter} inboxConst={inboxConst = inboxConst()} />
             <MailList mails={mails} onRemoveMail={onRemoveMail} />
         </div>
     </div>

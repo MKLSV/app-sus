@@ -9,7 +9,6 @@ export function NewMail() {
     const navigate = useNavigate()
 
     function handleChange({ target }) {
-
         let { value, name } = target
         setMailToAdd((prevVal) => ({ ...prevVal, [name]: value }))
 
