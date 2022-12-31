@@ -18,6 +18,13 @@
   box-shadow: 0 1px 7px rgb(128, 128, 128);
 }
 
+.notes-filter input {
+  width: 37rem;
+  margin-top: 1rem;
+  margin-left: 7.8rem;
+  box-shadow: 0 1px 7px rgb(128, 128, 128);
+}
+
 .note-add {
   display: flex;
     justify-content: center;

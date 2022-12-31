@@ -9,10 +9,10 @@ import { DynamicNote } from "./dynamic-note.jsx";
 import { noteService } from "../services/note.service.js";
 
 
-export function NotePreview({ note, onSelectNote, onRemoveNote, onPinClick }) {
+export function NotePreview({ setNotes, note, onSelectNote, onRemoveNote, onPinClick }) {
   const [selectedColor, setSelectedColor] = useState("white");
   const [isPickerOpen, setIsPickerOpen] = useState(false);
-  const [isPinned, setIsPinned] = useState(true);
+  const [isNotePinned, setisNotePinned] = useState(false);
   
   useEffect(() => {
     noteService.get(note.id).then(note => {
@@ -23,14 +23,19 @@ export function NotePreview({ note, onSelectNote, onRemoveNote, onPinClick }) {
     })
   }, []);
 
+  
+
 
   function handleColorClick() {
     setIsPickerOpen(!isPickerOpen);
   }
 
   function handlePinClick() {
-    setIsPinned(!isPinned)
-    
+    setisNotePinned(!isNotePinned)
+    note.isPinned = isNotePinned
+    noteService.save(note).then(note => {
+      console.log(note);
+  })
     onPinClick(note.id)
   }
 

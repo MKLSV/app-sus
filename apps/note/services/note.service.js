@@ -11,86 +11,22 @@ export const noteService = {
   get,
   remove,
   getEmptyNote,
+  getDefaultFilter
 };
 
-// function addNote({ type, data }) {
-//   console.log("add note");
-//   console.log(type);
-//   var newNote = _createNewNoteObj(type);
-//   if (type === "txt") newNote.txt = data;
-//   if (type === "img") newNote.imgSrc = data;
-//   if (type === "video") newNote.videoSrc = data;
-//   if (type === "todo") newNote = _makeTodos(newNote, data);
-
-//   utilService.saveToStorage(NOTES_KEY, newNote);
-//   return Promise.resolve();
-// }
-
-// function _createNewNoteObj(type) {
-//   return {
-//     type: type,
-//     id: utilService.makeId(),
-//     date: new Date(),
-//     isPinned: false,
-//   };
-// }
-
-// function getNotes() {
-//   var notes = utilService.loadFromStorage(NOTES_KEY);
-//   if (!notes || !notes.length) {
-//     notes = [
-//       addNote({
-//         type: "video",
-//         data: "https://www.youtube.com/watch?v=izTMmZ9WYlE",
-//       }),
-//       addNote({
-//         type: "img",
-//         data: "https://qph.fs.quoracdn.net/main-qimg-c00c5665edabad203972611b5cee5e48.webp",
-//       }),
-//       addNote({ type: "txt", data: "this is my note, i am proud of it!" }),
-//       addNote({
-//         type: "txt",
-//         data: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem",
-//       }),
-//       addNote({
-//         type: "img",
-//         data: "https://pbs.twimg.com/profile_images/944816493295845376/43VDrZJk_400x400.jpg",
-//       }),
-//       addNote({ type: "todo", data: "gym, laundry, study, repeat" }),
-//       addNote({
-//         type: "txt",
-//         data: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem",
-//       }),
-//       addNote({
-//         type: "img",
-//         data: "https://i.pinimg.com/originals/b7/e3/4c/b7e34ce24dce66c2b0f6bcd7a4d039ff.jpg",
-//       }),
-//       addNote({ type: "todo", data: "Going to sleep, eat" }),
-//       addNote({
-//         type: "img",
-//         data: "https://images1-ynet-prod.azureedge.net/PicServer4/2016/01/27/6781132/67811170100099640360no.jpg",
-//       }),
-//     ];
-//     utilService.saveToStorage(NOTES_KEY, notes);
-//   }
-// }
-
-// function _makeTodos(newNote, data) {
-//   var todos = data.split(",");
-//   newNote.todos = todos.map((todo) => {
-//     return {
-//       txt: todo,
-//       isDone: false,
-//     };
-//   });
-//   return newNote;
-// }
-
-function query() {
+function query(filterBy = getDefaultFilter()) {
   return storageService.query(NOTES_KEY).then((notes) => {
+    if (filterBy.txt) {
+        const regex = new RegExp(filterBy.txt, 'i')
+        notes = notes.filter(note => regex.test(note.info.title) || regex.test(note.info.txt))
+    }
+    if (filterBy.type) {
+        notes = notes.filter(note => note.type === filterBy.type)
+    }
     return notes;
   });
 }
+
 
 function save(note) {
   if (note.id) {
@@ -106,6 +42,10 @@ function get(noteId) {
 
 function remove(noteId) {
   return storageService.remove(NOTES_KEY, noteId);
+}
+
+function getDefaultFilter() {
+    return {type:'', title:'', txt:''}
 }
 
 function getEmptyNote() {
@@ -125,7 +65,7 @@ function _createNotes() {
     notes = [
       {
         id: "n101",
-        createdAt: 1112222,
+        createdAt: Date.now(),
         type: "note-txt",
         isPinned: false,
         style: { backgroundColor: "#00d" },
@@ -134,6 +74,7 @@ function _createNotes() {
       {
         id: "n102",
         type: "note-img",
+        createdAt: Date.now(),
         isPinned: false,
         info: {
           url: "https://media.tenor.com/bnkVuyHgJrYAAAAC/question-mark-question-mark-meme-guy.gif",
@@ -145,6 +86,7 @@ function _createNotes() {
         id: "n103",
         type: "note-todos",
         isPinned: false,
+        createdAt: Date.now(),
         style: { backgroundColor: "#00d" },
         info: {
           title: "Get my stuff together",
@@ -158,6 +100,7 @@ function _createNotes() {
         id: "n104",
         type: "note-video",
         isPinned: false,
+        createdAt: Date.now(),
         style: { backgroundColor: "#00d" },
         info: {
           title: "my video",
@@ -202,31 +145,3 @@ function _createNotes() {
     utilService.saveToStorage(NOTES_KEY, notes);
   }
 }
-
-// function _createNotes() {
-//     let notes = utilService.loadFromStorage(NOTES_KEY);
-//     if (!notes || !notes.length) {
-//       notes = [
-//         {
-//           id: utilService.makeId(),
-//           type: "note-txt",
-//           title: "hello from note app",
-//           txt: "REACT JS RULES!"
-//         },
-//         {
-//           id: utilService.makeId(),
-//           type: "note-img",
-//           title: "hello from note app",
-//           txt: "PASHUTI!"
-//         },
-//         {
-//           id: utilService.makeId(),
-//           type: "note-todos",
-//           title: "hello from note app",
-//           txt: "LO EVANTI ET A MAALAH AZE!"
-
-//         },
-//       ];
-//       utilService.saveToStorage(NOTES_KEY, notes)
-//     }
-//   }
