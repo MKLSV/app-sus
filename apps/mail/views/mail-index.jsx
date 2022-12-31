@@ -22,19 +22,28 @@ export function MailIndex() {
         loadMails()
     }, [filterBy])
 
+    // useEffect(() => {
+    //     console.log('loading')
+    //     loadFilterMails()
+    // })
+
 
     function loadMails() {
         mailService.query(filterBy).then(mails => setMails(mails))
     }
+    // function loadFilterMails() {
+    //     mailService.anotherQuery(filter).then(mails => {
+    //         setMails(mails)
+    //         console.log(mails)
+    //     })
+    // }
 
     function onSetFilterBy(filterBy) {
-        setFilterBy(filterBy)
+        setFilter(filterBy)
     }
-    function onSetFilter(filter) {
-        
-        console.log(filter)
-        setFilterBy(filter)
-    }
+    // function onSetFilter(filter) {
+    //     setFilterBy(filter)
+    // }
 
     function onRemoveMail(mail) {
         const mailId = mail.id
@@ -61,7 +70,7 @@ export function MailIndex() {
 
     return <div className='mail-app'>
 
-        <MailHeader onSetFilter={onSetFilter} />
+        <MailHeader />
         <div className='mail-container'>
             <MailNav onSetFilter={onSetFilterBy} inboxConst={inboxConst = inboxConst()} />
             <MailList mails={mails} onRemoveMail={onRemoveMail} />

@@ -32,11 +32,17 @@ export function MailPreview({ mail, onRemoveMail, time }) {
         navigate(`/mail/${mail.id}`)
     }
 
+    function checkName(){
+        const user = mailService.getUser()
+        if(user.fullname === mail.name) return 'Me'
+        return mail.name
+    }
+
 
     return <Fragment>
         <tr className={mail.isRead ? 'mail-list-message is-read' : 'mail-list-message'} onClick={() => { goToDetails() }}>
             <td className="mail-list-starred" onClick={setStar}>{mail.isStarred ? <i className="fa-solid fa-star fa-lg"></i> : <i className="fa-regular fa-star fa-lg"></i>}</td>
-            <td>{mail.name}</td>
+            <td>{checkName()}</td>
             <td>{mail.subject}</td>
             <td className='preview-time'>{time}</td>
             <td className='preview-btns table-btns'>

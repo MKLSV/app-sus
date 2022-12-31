@@ -1,14 +1,16 @@
-.home{
+.about {
     padding: 50px;
 }
-.home-welcome{
+
+.about-head {
     text-align: center;
     font-size: xx-large;
     color: rgb(42, 42, 42);
     font-family: lato-black;
     margin-bottom: 50px;
 }
-.home-text{
+
+.about-text {
     padding: 10px 100px;
     font-family: lato-light;
 }

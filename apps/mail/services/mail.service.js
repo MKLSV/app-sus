@@ -12,7 +12,8 @@ export const mailService = {
     save,
     getEmptyMail,
     get,
-    getUser
+    getUser,
+    anotherQuery
 }
 
 function _loggedUser() {
@@ -31,16 +32,16 @@ function get(mailId) {
     return storageService.get(MAILS_KEY, mailId)
 }
 
-// function query(filter = 'inbox') {
-//     return storageService.query(MAILS_KEY)
-//     .then(mails => {
-//         if(filterBy.txt) {
-//             const regex = new RegExp(filterBy.txt, 'i')
-//             mails = mails.filter(mail => regex.test(mail.subject))
-//         }
-//         return mails
-//     })
-// }
+function anotherQuery(filter = '') {
+    return storageService.query(MAILS_KEY)
+    .then(mails => {
+        if(filter) {
+            const regex = new RegExp(filter, 'i')
+            mails = mails.filter(mail => regex.test(mail.subject))
+        }
+        return mails
+    })
+}
 
 function query(filterBy) {
     return storageService.query(MAILS_KEY)
