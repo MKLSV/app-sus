@@ -2,17 +2,14 @@ const { useState, useEffect } = React;
 
 import { noteService } from "../services/note.service.js";
 
-
-
 export function NoteFilter({ onSetFilter }) {
   const [filterByToEdit, setFilterByToEdit] = useState(
     noteService.getDefaultFilter()
   );
 
   useEffect(() => {
-    onSetFilter(filterByToEdit)
-  }, [filterByToEdit])
-  
+    onSetFilter(filterByToEdit);
+  }, [filterByToEdit]);
 
   function handleChange({ target }) {
     const { value, name: field } = target;
@@ -21,10 +18,10 @@ export function NoteFilter({ onSetFilter }) {
     });
   }
 
-function onSubmitFilter(ev) {
-    ev.preventDefault()
-    onSetFilter(filterByToEdit)
-}
+  function onSubmitFilter(ev) {
+    ev.preventDefault();
+    onSetFilter(filterByToEdit);
+  }
 
   return (
     <section className="notes-filter">
@@ -38,7 +35,7 @@ function onSubmitFilter(ev) {
           onChange={handleChange}
         />
         <select value={filterByToEdit.type} name="type" onChange={handleChange}>
-        <option name="type" value="">
+          <option name="type" value="">
             All
           </option>
           <option name="type" value="note-txt">
@@ -54,7 +51,6 @@ function onSubmitFilter(ev) {
             Video
           </option>
         </select>
-        <button>Filter</button>
       </form>
     </section>
   );

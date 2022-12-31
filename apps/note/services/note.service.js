@@ -59,6 +59,17 @@ function getEmptyNote() {
   };
 }
 
+// function cloneNote(noteId) {
+//     findNoteIdxById(noteId).then(noteIdx => {
+//         let cloneNote = JSON.stringify(gNotes[noteIdx])
+//         cloneNote = JSON.parse(cloneNote)
+//         cloneNote.id = utilService.makeId()
+//         gNotes.splice(noteIdx, 0, cloneNote)
+//         storageService.saveToStorage(STORAGE_KEY, gNotes)
+//     })
+// }
+
+
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTES_KEY);
   if (!notes || !notes.length) {

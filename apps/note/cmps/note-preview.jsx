@@ -8,49 +8,69 @@ import { ColorPicker } from "../cmps/color-picker.jsx";
 import { DynamicNote } from "./dynamic-note.jsx";
 import { noteService } from "../services/note.service.js";
 
-
-export function NotePreview({ setNotes, note, onSelectNote, onRemoveNote, onPinClick }) {
+export function NotePreview({
+  setNotes,
+  note,
+  onSelectNote,
+  onRemoveNote,
+  onPinClick,
+}) {
   const [selectedColor, setSelectedColor] = useState("white");
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [isNotePinned, setisNotePinned] = useState(false);
-  
+  const [clonedNote, setClonedNote] = useState({});
+
   useEffect(() => {
-    noteService.get(note.id).then(note => {
-      const savedColor = note.style.backgroundColor
+    noteService.get(note.id).then((note) => {
+      const savedColor = note.style.backgroundColor;
       if (savedColor) {
         setSelectedColor(savedColor);
       }
-    })
+    });
   }, []);
 
   
 
+  // Create a function that sets the state of the cloned note based on the properties of the original note
+  function handleClone() {
+    const newNote = { ...note }
+    localStorage.setItem('clonedNote', JSON.stringify(NOTES_KEY, newNote));
+    setClonedNote(newNote);
+  }
 
   function handleColorClick() {
     setIsPickerOpen(!isPickerOpen);
   }
 
   function handlePinClick() {
-    setisNotePinned(!isNotePinned)
-    note.isPinned = isNotePinned
-    noteService.save(note).then(note => {
+    setisNotePinned(!isNotePinned);
+    note.isPinned = isNotePinned;
+    noteService.save(note).then((note) => {
       console.log(note);
-  })
-    onPinClick(note.id)
+    });
+    onPinClick(note.id);
   }
 
   return (
-    <article className="note-preview" style={{
-      backgroundColor: selectedColor,
-    }}>
+    <article
+      className="note-preview"
+      style={{
+        backgroundColor: selectedColor,
+      }}
+    >
       <DynamicNote type={note.type} info={note.info} />
 
       <div className="note-btns">
+        <button onClick={() => noteService.cloneNote(note.id)}>clone</button>
         <i className="fa-solid fa-lg fa-thumbtack" onClick={handlePinClick}></i>
-        <i className="fa-solid fa-lg fa-palette"  onClick={handleColorClick}></i>
+        <i className="fa-solid fa-lg fa-palette" onClick={handleColorClick}></i>
         {isPickerOpen && (
-        <ColorPicker color={selectedColor} setColor={setSelectedColor} note={note}/>
-      )}
+          <ColorPicker
+            color={selectedColor}
+            setColor={setSelectedColor}
+            note={note}
+          />
+        )}
 
         <i
           className="fa-solid fa-lg fa-pen-to-square note-btn"

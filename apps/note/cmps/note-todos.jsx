@@ -6,9 +6,9 @@ export function NoteTodos({ info }) {
 
   return (
     <div >
-        {info.title && <h1>{info.title}</h1>}
-        {info.txt && <p>{info.txt}</p>}
-      <ul >
+        {info.title && <h1 contentEditable={true}>{info.title}</h1>}
+        {info.txt && <p contentEditable={true}>{info.txt}</p>}
+      <ul contentEditable={true}>
         {info.todos.map((todo, idx) => (
           <li key={idx} >{todo.txt}</li>
         ))}

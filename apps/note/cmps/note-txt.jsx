@@ -5,8 +5,8 @@
 export function NoteTxt({info}) {
 
     return <div className="note-txt">
-        {info.title && <h1>{info.title}</h1>}
-        <p>{info.txt}</p>
+        {info.title && <h1 contentEditable={true}>{info.title}</h1>}
+        <p contentEditable={true}>{info.txt}</p>
         
     </div>
 

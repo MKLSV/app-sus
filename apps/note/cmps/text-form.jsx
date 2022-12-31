@@ -20,6 +20,6 @@ export function TextForm({noteToAddType, onSaveNote, notes, setNotes, handleChan
       rows="3"
       onChange={handleChange}
     ></textarea>
-    <button className="add-note-btn">Add note</button>
+    <button ><i className="fa-solid fa-2xl fa-circle-plus add-note-btn"></i></button>
   </form>
 }

@@ -5,7 +5,7 @@ export function NoteVideo({ info }) {
         <div className="note-video-container">
         <iframe src={info.url}></iframe>
         </div>
-      <h2>{info.title}</h2>
+      <h2 contentEditable={true}>{info.title}</h2>
       
     </div>
   );

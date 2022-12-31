@@ -20,7 +20,7 @@ export function ImgForm({noteToAddType, onSaveNote, notes, setNotes, handleChang
       rows="3"
       onChange={handleChange}
     ></textarea>
-    <i className="fa-solid fa-xl fa-circle-plus add-note-btn"></i>
-    <button className="add-note-btn ">Add note</button>
+    
+    <button ><i className="fa-solid fa-2xl fa-circle-plus add-note-btn"></i></button>
   </form>
 }
