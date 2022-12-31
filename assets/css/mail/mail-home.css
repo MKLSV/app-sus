@@ -28,10 +28,36 @@
 /* MAIL */
 
 .mail-header {
-    background-color: rgb(140, 184, 184);
+    background-color: #c2e7ff;
     display: flex;
-    padding: 5px 20px;
-    justify-content: space-between;
+    align-items: center;
+    padding: 5px 35px;
+}
+.mail-search{
+    background-color: #fff;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    padding: 0 10px;
+    gap: 15px;
+    width: 70vw;
+    height: 30px;
+    margin-left: 150px;
+}
+.mail-search-btn{
+    cursor: pointer;
+    color: rgb(85, 85, 85);
+}
+.mail-search-input{
+    width: 70vw;
+    height: 20px;
+    border: none;
+    font-size: large;
+}
+.mail-search-input:focus{
+    border: none;
+    outline-offset: 0px;
+    outline: none;
 }
 
 .mail-container {
