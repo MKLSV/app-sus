@@ -23,6 +23,7 @@ nav{
     margin: 0;
     top: 69px;
     right: 0;
+    width: 10vw;
     /* height: 50vh; */
     background-color: #9eb1be;
     text-align: center;
@@ -45,6 +46,7 @@ nav{
 }
 nav a {
     margin: .5em;
+    font-size: large;
 }
 
 nav a:active {
