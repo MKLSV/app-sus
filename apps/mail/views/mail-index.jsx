@@ -11,6 +11,7 @@ import { mailService } from "../services/mail.service.js"
 
 export function MailIndex() {
 
+    const [filter, setFilter] = useState('')
     const [filterBy, setFilterBy] = useState('inbox')
     const [mails, setMails] = useState(null)
     console.log(filterBy)
@@ -26,15 +27,14 @@ export function MailIndex() {
         mailService.query(filterBy).then(mails => setMails(mails))
     }
 
-    function onSetFilter(filterBy) {
+    function onSetFilterBy(filterBy) {
         setFilterBy(filterBy)
     }
-    // function onSetFilter(filter,type) {
-    //     if(type === 'category') filterBy.type = filter
-    //     if(type === 'value') filterBy.value = filter
-    //     console.log(filterBy)
-    //     setFilterBy(filterBy)
-    // }
+    function onSetFilter(filter) {
+        
+        console.log(filter)
+        setFilterBy(filter)
+    }
 
     function onRemoveMail(mail) {
         const mailId = mail.id
@@ -54,16 +54,16 @@ export function MailIndex() {
 
     function inboxConst() {
         const inbox = mails.filter(mail => mail.isSent !== true && mail.isDraft !== true && mail.onTrash !== true && mail.isRead !== false)
-        if(inbox.length > 0) return inbox.length
+        if (inbox.length > 0) return inbox.length
     }
 
     if (!mails) return <h1 className="loading"></h1>
 
     return <div className='mail-app'>
 
-        <MailHeader onSetFilter={onSetFilter}/>
+        <MailHeader onSetFilter={onSetFilter} />
         <div className='mail-container'>
-            <MailNav onSetFilter={onSetFilter} inboxConst={inboxConst = inboxConst()} />
+            <MailNav onSetFilter={onSetFilterBy} inboxConst={inboxConst = inboxConst()} />
             <MailList mails={mails} onRemoveMail={onRemoveMail} />
         </div>
     </div>

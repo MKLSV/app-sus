@@ -9,12 +9,7 @@ export function MailFilter({ onSetFilter}) {
     }
 
     return <div className='mail-search'>
-        <a><i className="fa-solid fa-magnifying-glass"></i></a>
-        <input type='text' name='mail-search' />
-        <select name="mail-search-option" id="mail-search-option">
-            <option value="all">All</option>
-            <option value="starred">Starred</option>
-            <option value="drafts">Drafts</option>
-        </select>
+        <a  className='mail-search-btn'><i className="fa-solid fa-magnifying-glass fa-lg"></i></a>
+        <input className='mail-search-input' type='text' name='mail-search' placeholder="Search Mail..." />
     </div>
 }

@@ -5,7 +5,7 @@ import { MailFilter } from "./mail-filter.jsx";
 export function MailHeader({ onSetFilter }) {
 
     return <header className='mail-header'>
-        <section className='mail-logo'>Mail App</section>
+        <a className='mail-logo'><img src="../../../assets/img/mail-logo.png"/></a>
         <MailFilter onSetFilter={onSetFilter} />
     </header>
 }
