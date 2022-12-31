@@ -7,9 +7,15 @@
     font-size: xx-large;
     color: rgb(42, 42, 42);
     font-family: lato-black;
-    margin-bottom: 50px;
+    margin-bottom: 20px ;
 }
-
+.about-head-subject{
+    color: rgb(50, 50, 50);
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: lato-black;
+}
 .about-text {
     padding: 10px 100px;
     font-family: lato-light;
