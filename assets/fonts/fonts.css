@@ -1,0 +1,27 @@
+@font-face {
+    font-family: lato-black;
+    src: url(Lato-Black.ttf);
+}
+
+@font-face {
+    font-family: lato-bold;
+    src: url(Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: lato-light;
+    src: url(Lato-Light.ttf);
+}
+
+@font-face {
+    font-family: lato-thin;
+    src: url(Lato-Thin.ttf);
+}
+@font-face {
+    font-family: roboto-regular;
+    src: url(Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: roboto-light;
+    src: url(Roboto-Light.ttf);
+}
