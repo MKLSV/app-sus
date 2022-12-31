@@ -25,3 +25,6 @@
 
 /* Mail */
 @import './mail/mail-home.css';
+
+/* Fonts */
+@import '../../assets/fonts/fonts.css'
