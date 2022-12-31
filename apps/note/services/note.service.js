@@ -127,7 +127,7 @@ function _createNotes() {
         id: "n101",
         createdAt: 1112222,
         type: "note-txt",
-        isPinned: true,
+        isPinned: false,
         style: { backgroundColor: "#00d" },
         info: { txt: "Fullstack Me Baby!" },
       },

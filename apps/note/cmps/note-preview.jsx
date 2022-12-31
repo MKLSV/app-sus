@@ -12,7 +12,7 @@ import { noteService } from "../services/note.service.js";
 export function NotePreview({ note, onSelectNote, onRemoveNote, onPinClick }) {
   const [selectedColor, setSelectedColor] = useState("white");
   const [isPickerOpen, setIsPickerOpen] = useState(false);
-  const [isPinned, setIsPinned] = useState(false);
+  const [isPinned, setIsPinned] = useState(true);
   
   useEffect(() => {
     noteService.get(note.id).then(note => {
@@ -21,8 +21,8 @@ export function NotePreview({ note, onSelectNote, onRemoveNote, onPinClick }) {
         setSelectedColor(savedColor);
       }
     })
-    
   }, []);
+
 
   function handleColorClick() {
     setIsPickerOpen(!isPickerOpen);
@@ -30,8 +30,8 @@ export function NotePreview({ note, onSelectNote, onRemoveNote, onPinClick }) {
 
   function handlePinClick() {
     setIsPinned(!isPinned)
+    
     onPinClick(note.id)
-    console.log('this is a pinned note');
   }
 
   return (

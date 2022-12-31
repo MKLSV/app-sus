@@ -39,22 +39,25 @@ export function NoteIndex() {
 
 
 const handlePinClick = (noteId) => {
-    const updatedNotes = notes.map((note) => {
+    let newArr = [...notes, ...pinnedNotes]
+    let updatedNotes = newArr.map((note) => {
         if (note.id === noteId) {
           return { ...note, isPinned: !note.isPinned };
         }
         return note;
       });
-      setNotes(updatedNotes);
-    
-      const updatedPinnedNotes = notes.filter((note) => note.isPinned);
+      
+      const updatedPinnedNotes = updatedNotes.filter((note) => note.isPinned);
       setPinnedNotes(updatedPinnedNotes);
+
+      let newNotes = updatedNotes.filter((note) => !note.isPinned)
+      setNotes(newNotes);
   };
 
         return (
             <section className="note-index">
                 <NoteAdd setNotes={setNotes} notes={notes} />
-                <PinnedNotes pinnedNotes={pinnedNotes} onPinClick={handlePinClick} />
+                <PinnedNotes setPinnedNotes={setPinnedNotes} pinnedNotes={pinnedNotes} onPinClick={handlePinClick} />
                 <NoteList
                     onPinClick={handlePinClick}
                     notes={notes}
