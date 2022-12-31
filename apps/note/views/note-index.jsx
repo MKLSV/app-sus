@@ -8,6 +8,7 @@ import { PinnedNotes } from "./pinned-notes.jsx";
 
 export function NoteIndex() {
   const [notes, setNotes] = useState([]);
+  const [pinnedNotes, setPinnedNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -37,17 +38,29 @@ export function NoteIndex() {
   }
 
 
+const handlePinClick = (noteId) => {
+    const updatedNotes = notes.map((note) => {
+        if (note.id === noteId) {
+          return { ...note, isPinned: !note.isPinned };
+        }
+        return note;
+      });
+      setNotes(updatedNotes);
+    
+      const updatedPinnedNotes = notes.filter((note) => note.isPinned);
+      setPinnedNotes(updatedPinnedNotes);
+  };
 
-  return (
-    <section className="note-index">
-      <NoteAdd setNotes={setNotes} notes={notes}/>
-      <PinnedNotes />
-      <NoteList
-        notes={notes}
-        onRemoveNote={onRemoveNote}
-        onSelectNote={onSelectedNote}
-      />
-      {selectedNote && <NoteDetails isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} selectedNote={selectedNote} />}
-    </section>
-  );
-}
+        return (
+            <section className="note-index">
+                <NoteAdd setNotes={setNotes} notes={notes} />
+                <PinnedNotes pinnedNotes={pinnedNotes} onPinClick={handlePinClick} />
+                <NoteList
+                    onPinClick={handlePinClick}
+                    notes={notes}
+                    onRemoveNote={onRemoveNote}
+                    onSelectNote={onSelectedNote} />
+                {selectedNote && <NoteDetails isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} selectedNote={selectedNote} />}
+            </section>
+        );
+    }

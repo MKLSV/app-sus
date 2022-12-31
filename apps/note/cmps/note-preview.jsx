@@ -9,9 +9,10 @@ import { DynamicNote } from "./dynamic-note.jsx";
 import { noteService } from "../services/note.service.js";
 
 
-export function NotePreview({ note, onSelectNote, onRemoveNote }) {
+export function NotePreview({ note, onSelectNote, onRemoveNote, onPinClick }) {
   const [selectedColor, setSelectedColor] = useState("white");
   const [isPickerOpen, setIsPickerOpen] = useState(false);
+  const [isPinned, setIsPinned] = useState(false);
   
   useEffect(() => {
     noteService.get(note.id).then(note => {
@@ -27,6 +28,12 @@ export function NotePreview({ note, onSelectNote, onRemoveNote }) {
     setIsPickerOpen(!isPickerOpen);
   }
 
+  function handlePinClick() {
+    setIsPinned(!isPinned)
+    onPinClick(note.id)
+    console.log('this is a pinned note');
+  }
+
   return (
     <article className="note-preview" style={{
       backgroundColor: selectedColor,
@@ -34,7 +41,7 @@ export function NotePreview({ note, onSelectNote, onRemoveNote }) {
       <DynamicNote type={note.type} info={note.info} />
 
       <div className="note-btns">
-        <i className="fa-solid fa-lg fa-thumbtack"></i>
+        <i className="fa-solid fa-lg fa-thumbtack" onClick={handlePinClick}></i>
         <i className="fa-solid fa-lg fa-palette"  onClick={handleColorClick}></i>
         {isPickerOpen && (
         <ColorPicker color={selectedColor} setColor={setSelectedColor} note={note}/>
