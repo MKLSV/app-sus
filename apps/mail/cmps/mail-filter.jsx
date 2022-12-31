@@ -1,6 +1,13 @@
+const { useState } = React
 
+export function MailFilter({ onSetFilter}) {
 
-export function MailFilter() {
+    const[filterByToEdit, setfilterByToEdit] = useState('')
+
+    function handleChange({target}) {
+        
+    }
+
     return <div className='mail-search'>
         <a><i className="fa-solid fa-magnifying-glass"></i></a>
         <input type='text' name='mail-search' />

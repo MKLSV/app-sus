@@ -1,15 +1,18 @@
+import { utilService } from "../../../services/util.service.js"
 import { mailService } from "../services/mail.service.js"
 
 
 const { useParams } = ReactRouterDOM
 const { useState, useEffect } = React
 const { NavLink, Link } = ReactRouterDOM
+const { useNavigate } = ReactRouterDOM
 
 
 export function MailDetails() {
 
     const [isStarred, setIsStarred] = useState(null)
     const [mail, setMail] = useState(null)
+    const navigate = useNavigate()
     const params = useParams()
     console.log(params)
 
@@ -33,7 +36,27 @@ export function MailDetails() {
         if (user.email === mail.to) return 'to me'
     }
 
-    if (!mail) return <h1>Loading...</h1>
+    function makeUnread() {
+        mail.isRead = false
+        mailService.save(mail).then(() => {
+            navigate(-1)
+        })
+
+    }
+    function onRemote() {
+        if (mail.onTrash) {
+            mailService.remove(mail.id).then(() => {
+                navigate(-1)
+            })
+        } else {
+            mail.onTrash = true
+            mailService.save(mail).then(() => {
+                navigate(-1)
+            })
+        }
+    }
+
+    if (!mail) return <h1 className="loading"></h1>
     return <section className="mail-details">
         <div className="mail-details-header">
             <div className="mail-details-header-subject-back">
@@ -41,8 +64,8 @@ export function MailDetails() {
                 <a className="mail-details-header-subject">{mail.subject}</a>
             </div>
             <div className="mail-details-header-btns">
-                <a onClick={() => console.log('unread')}><i className="fa-regular fa-envelope fa-lg mail-details-header-btn"></i></a>
-                <a onClick={() => console.log('remove')}><i className="fa-regular fa-trash-can  fa-lg mail-details-header-btn"></i></a>
+                <a onClick={() => makeUnread()}><i className="fa-regular fa-envelope fa-lg mail-details-header-btn"></i></a>
+                <a onClick={() => onRemote()}><i className="fa-regular fa-trash-can  fa-lg mail-details-header-btn"></i></a>
             </div>
         </div>
         <div className="mail-details-info-a">
@@ -59,8 +82,8 @@ export function MailDetails() {
                         <span className="mail-details-to">{checkTo()}</span>
                     </div>
                     <div className="mail-details-time-star">
-                        <span className="mail-details-name">{mail.sentAt}</span>
-                        <span onClick={setStar}>{mail.isStarred ? <i className="fa-solid fa-star "></i> : <i className="fa-regular fa-star"></i>}</span>
+                        <span className="mail-details-time">{utilService.getMailTimeMs(mail.sentAt)}</span>
+                        <span className="mail-details-starred" onClick={setStar}>{mail.isStarred ? <i className="fa-solid fa-star "></i> : <i className="fa-regular fa-star"></i>}</span>
                     </div>
                 </div>
                 <div className='mail-details-contant'>

@@ -2,10 +2,10 @@ import { MailFilter } from "./mail-filter.jsx";
 
 
 
-export function MailHeader() {
+export function MailHeader({ onSetFilter }) {
 
     return <header className='mail-header'>
         <section className='mail-logo'>Mail App</section>
-        <MailFilter/>
+        <MailFilter onSetFilter={onSetFilter} />
     </header>
 }

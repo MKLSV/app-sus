@@ -10,7 +10,9 @@ export const utilService = {
     saveToStorage,
     getTime,
     getMonthShortName,
-    getDay
+    getDay,
+    getTimeMs,
+    getMailTimeMs
 }
 
 function makeId(length = 6) {
@@ -53,6 +55,30 @@ function getRandomColor() {
     return color
 }
 
+function getTimeMs(time) {
+    const currTime = Date.now()
+    const dif = (currTime - time) / 1000 / 60 / 60 / 24
+    if (dif < 1) {
+        let { hour, minute } = getTime(time)
+        minute = minute < 10 ? '0' + minute : minute
+        return (hour + ":" + minute);
+    }
+    return (getDay(time) + ' ' + getMonthShortName(time))
+}
+
+function getMailTimeMs(time) {
+    const currTime = Date.now()
+    const fullTIme = new Date(time)
+    const dif = (currTime - time) / 1000 / 60 / 60 / 24
+    const day = fullTIme.toLocaleDateString('en-US', { weekday: 'short' });
+    let { hour, minute } = getTime(time)
+    minute = minute < 10 ? '0' + minute : minute
+    if (dif * 24 < 1) return (`${day}, ${getMonthShortName(fullTIme)} ${fullTIme.getDate()},${hour}:${minute}  (${Math.floor(dif * 24 * 60)} minutes ago)`)
+    else if (dif < 1) return (`${day}, ${getMonthShortName(fullTIme)} ${fullTIme.getDate()},${hour}:${minute}  (${Math.floor(dif * 24)} hours ago)`)
+    else if (dif < 30)  return (`${day}, ${getMonthShortName(fullTIme)} ${fullTIme.getDate()}, ${hour}:${minute} (${Math.floor(dif)} days ago)`)
+    return (`${day}, ${getMonthShortName(fullTIme)} ${fullTIme.getDate()}, ${hour}:${minute}`)
+}
+
 function getDayName(date, locale) {
     date = new Date(date)
     return date.toLocaleDateString(locale, { weekday: 'long' })
@@ -68,19 +94,20 @@ function getTime(date) {
 
 function getDay(time) {
     var d = new Date(time)
-    var day = d.getDay()
-    return day + 1
+    var day = d.getDate()
+    if (day < 10) day = '0' + day
+    return day
 }
 
 function getMonthName(date) {
-    if(typeof date === 'number') date = new Date(date)
+    if (typeof date === 'number') date = new Date(date)
     const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ]
     return monthNames[date.getMonth()]
 }
 function getMonthShortName(date) {
-    if(typeof date === 'number') date = new Date(date)
+    if (typeof date === 'number') date = new Date(date)
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ]
