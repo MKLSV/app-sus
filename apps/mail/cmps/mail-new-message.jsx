@@ -22,8 +22,12 @@ export function NewMail() {
     }
 
     function onDraft() {
-        console.log('saved to draft')
-        navigate('/mail')
+        mailToAdd.isSent = false
+        mailToAdd.isDraft = true
+        mailService.save(mailToAdd).then((mail) => {
+            console.log(mail)
+            navigate('/mail')
+        })
     }
 
     return <div className='new-message-container'>

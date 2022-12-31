@@ -1,15 +1,23 @@
-const { useState } = React
+const { useState, useEffect } = React
 
-export function MailFilter({ onSetFilter}) {
+export function MailFilter() {
 
-    const[filterByToEdit, setfilterByToEdit] = useState('')
+    // const [filterByToEdit, setfilterByToEdit] = useState('')
 
-    function handleChange({target}) {
-        
+    // useEffect(() => {
+    //     onSetFilter(filterByToEdit)
+    // }, [filterByToEdit])
+
+    function handleChange({ target }) {
+        // setfilterByToEdit(target.value)
+    }
+
+    function onSubmitFilter(){
+        // onSetFilter(filterByToEdit)
     }
 
     return <div className='mail-search'>
-        <a  className='mail-search-btn'><i className="fa-solid fa-magnifying-glass fa-lg"></i></a>
-        <input className='mail-search-input' type='text' name='mail-search' placeholder="Search Mail..." />
+        <a onClick={onSubmitFilter}className='mail-search-btn'><i className="fa-solid fa-magnifying-glass fa-lg"></i></a>
+        <input className='mail-search-input' type='text' name='mail-search' placeholder="Search Mail..." onChange={handleChange} />
     </div>
 }

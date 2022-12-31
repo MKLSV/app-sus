@@ -1,5 +1,5 @@
 header {
-    background: #9eb1be;
+    background: #619dc6;
     color: rgb(255, 255, 255);
 }
 .app-header-logo{
@@ -23,8 +23,9 @@ nav{
     margin: 0;
     top: 69px;
     right: 0;
+    width: 10vw;
     /* height: 50vh; */
-    background-color: #9eb1be;
+    background-color: #619dc6;
     text-align: center;
     transform: translateX(100%);
     
@@ -32,7 +33,7 @@ nav{
 }
 
 .nav-btn{
-    
+
 }
 .nav-btn:hover{
 
@@ -45,6 +46,7 @@ nav{
 }
 nav a {
     margin: .5em;
+    font-size: large;
 }
 
 nav a:active {
