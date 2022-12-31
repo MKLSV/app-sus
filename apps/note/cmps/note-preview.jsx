@@ -1,5 +1,5 @@
 const { useState, useEffect } = React;
-
+const NOTES_KEY = "notes";
 import { NoteTxt } from "../cmps/note-txt.jsx";
 import { NoteImg } from "../cmps/note-img.jsx";
 import { NoteVideo } from "../cmps/note-video.jsx";
@@ -7,6 +7,7 @@ import { NoteTodos } from "../cmps/note-todos.jsx";
 import { ColorPicker } from "../cmps/color-picker.jsx";
 import { DynamicNote } from "./dynamic-note.jsx";
 import { noteService } from "../services/note.service.js";
+import { utilService } from "../../../services/util.service.js";
 
 export function NotePreview({
   setNotes,
@@ -18,7 +19,7 @@ export function NotePreview({
   const [selectedColor, setSelectedColor] = useState("white");
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [isNotePinned, setisNotePinned] = useState(false);
-  const [clonedNote, setClonedNote] = useState({});
+
 
   useEffect(() => {
     noteService.get(note.id).then((note) => {
@@ -28,15 +29,6 @@ export function NotePreview({
       }
     });
   }, []);
-
-  
-
-  // Create a function that sets the state of the cloned note based on the properties of the original note
-  function handleClone() {
-    const newNote = { ...note }
-    localStorage.setItem('clonedNote', JSON.stringify(NOTES_KEY, newNote));
-    setClonedNote(newNote);
-  }
 
   function handleColorClick() {
     setIsPickerOpen(!isPickerOpen);
@@ -61,7 +53,6 @@ export function NotePreview({
       <DynamicNote type={note.type} info={note.info} />
 
       <div className="note-btns">
-        <button onClick={() => noteService.cloneNote(note.id)}>clone</button>
         <i className="fa-solid fa-lg fa-thumbtack" onClick={handlePinClick}></i>
         <i className="fa-solid fa-lg fa-palette" onClick={handleColorClick}></i>
         {isPickerOpen && (
