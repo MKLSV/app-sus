@@ -2,7 +2,7 @@ const { useState } = React;
 
 import { noteService } from "../services/note.service.js";
 
-export function ColorPicker({ color, setColor, note }) {
+export function ColorPicker({ color, setColor, note, setIsPickerOpen }) {
   const colors = [
     "#F28B82",
     "#FBBC05",
@@ -23,6 +23,7 @@ export function ColorPicker({ color, setColor, note }) {
     noteService.save(note).then(note => {
         console.log(note);
     })
+    setIsPickerOpen(false)
   }
 
   return (

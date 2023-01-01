@@ -57,6 +57,7 @@ export function NotePreview({
         <i className="fa-solid fa-lg fa-palette note-btn" onClick={handleColorClick}></i>
         {isPickerOpen && (
           <ColorPicker
+          setIsPickerOpen={setIsPickerOpen}
             color={selectedColor}
             setColor={setSelectedColor}
             note={note}

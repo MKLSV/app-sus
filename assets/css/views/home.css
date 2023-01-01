@@ -1,6 +1,15 @@
 .home{
     padding: 50px;
 }
+
+.main-home-content {
+    display: flex;
+}
+
+.main-home-content .img-container {
+    width: 100rem;
+}
+
 .home-welcome{
     text-align: center;
     font-size: xx-large;
@@ -12,3 +21,13 @@
     padding: 10px 100px;
     font-family: lato-light;
 }
+
+@media screen and (max-width: 1080px) {
+    .main-home-content{
+        flex-wrap: wrap;
+    }
+
+    .main-home-content .img-container {
+        width: 40rem;
+    }
+  }
