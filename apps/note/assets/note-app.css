@@ -171,13 +171,15 @@ iframe {
     transition-timing-function: ease-in;
 }
 
-.note-btns:hover {
-  opacity: 1;
-}
+
 
 .note-btn:hover {
   cursor: pointer;
   color:#4d5d80
+}
+
+.note-preview:hover .note-btns{
+  opacity: 1;
 }
 
 .note-type-btns {

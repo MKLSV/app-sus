@@ -53,8 +53,8 @@ export function NotePreview({
       <DynamicNote type={note.type} info={note.info} />
 
       <div className="note-btns">
-        <i className="fa-solid fa-lg fa-thumbtack" onClick={handlePinClick}></i>
-        <i className="fa-solid fa-lg fa-palette" onClick={handleColorClick}></i>
+        <i className="fa-solid fa-lg fa-thumbtack note-btn" onClick={handlePinClick}></i>
+        <i className="fa-solid fa-lg fa-palette note-btn" onClick={handleColorClick}></i>
         {isPickerOpen && (
           <ColorPicker
             color={selectedColor}
@@ -67,7 +67,7 @@ export function NotePreview({
           className="fa-solid fa-lg fa-pen-to-square note-btn"
           onClick={() => onSelectNote(note.id)}
         ></i>
-        <i className="fa-solid fa-lg fa-envelope"></i>
+        <i className="fa-solid fa-lg fa-envelope note-btn"></i>
         <i
           className="fa-solid fa-lg fa-trash note-btn"
           onClick={() => onRemoveNote(note.id)}
