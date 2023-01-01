@@ -4,7 +4,7 @@ export function Home() {
       <h1 className="home-welcome">Welcome to Appsus!</h1>
       <div className="main-home-content">
         <div className="img-container">
-          <img src="/assets/img/2.png" alt="" srcset="" />
+        <img src="./assets/img/2.png" alt="" srcset=""/>
         </div>
 
         <div className="home-text-container">
